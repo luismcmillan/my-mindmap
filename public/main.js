@@ -128,20 +128,6 @@ async function loadJson() {
   }
 }
 
-async function update_obsidian() {
-  try {
-    const response = await fetch('http://192.168.2.41:3000');
-    if (!response.ok) {
-      throw new Error('Netzwerkantwort war nicht ok');
-    }
-    const data = await response.json();
-    return data; // Wichtig: Daten zurückgeben
-  } catch (error) {
-    console.error('Fehler bei der Aktualisierung von Obsidian:', error);
-    throw error; // Fehler weiterwerfen, um sie im Aufrufer zu behandeln
-  }
-}
-
 canvas.addEventListener("mousemove", (e) => {
   if (all_loaded && general_hovered) {
     clear();
@@ -221,6 +207,7 @@ canvas.addEventListener("mousedown", (e) => {
 });
 
 async function draw_all_lines() {
+  /*
   for (let i = 0; i < matrix.length; i++) {
     for (let j = 0; j < matrix.length; j++) {
       if (matrix[i][j] == 1) {
@@ -228,6 +215,7 @@ async function draw_all_lines() {
       }
     }
   }
+    */
 }
 
 
