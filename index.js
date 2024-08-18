@@ -10,7 +10,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 // Pfad zur C++-Executable-Datei
-const executablePath = './test'; // oder './myprogram.exe' unter Windows
+const executablePath = './position_calculation'; // oder './myprogram.exe' unter Windows
 
 const { Client } = pkg;
 const app = express();

@@ -602,21 +602,20 @@ int main()
             sum_x = 0.0;
             sum_y = 0.0;
             local.empty();
-            for(int x = district_x-2; x < district_x+3;x++){
-                for(int y = district_y-2; y < district_y+3;y++){
+            for(int x = district_x-3; x < district_x+4;x++){
+                for(int y = district_y-3; y < district_y+4;y++){
                     if(y >= 0 && y < grid_size && x >= 0 && x < grid_size){
                         local2 = location[x][y];
                         local.insert(local.end(), local2.begin(), local2.end());
                     }
                 } 
             } 
-            //std::cerr << "size" << local.size() << std::endl;
             
             for(int j = 0;j < local.size(); j++){
                 sum_x += circles[local[j]].x;
                 sum_y += circles[local[j]].y;
             }
-            if (local.size() > 1){
+            if (local.size() > 1){ //adjust
                 circles[i].keep_distance_to(sum_x/local.size(),sum_y/local.size());
                 old_district_x = circles[i].district_x;
                 old_district_y = circles[i].district_y;
@@ -637,19 +636,6 @@ int main()
             
             
         }
-
-        /*
-        int sum =0;
-        
-        for (int i = 0; i < grid_size; i++)
-        {
-            for (int j = 0; j < grid_size; j++)
-            {
-                sum += location[i][j].size();
-            }
-        }
-        std::cerr << sum << std::endl;
-        */
     }
     
 
