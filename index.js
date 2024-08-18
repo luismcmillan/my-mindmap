@@ -32,7 +32,7 @@ app.get("/Home", (req, res) => {
 });
 
 app.get("/update", async(req, res) => {
-    let database_data;
+    console.log("gets data from database");
     const caPath = path.join(__dirname, '/path/to/eu-central-1-bundle.pem');
     const caCert = await fs.readFile(caPath, 'utf8');
 
