@@ -62,15 +62,15 @@ export default class circle {
 
     follow(){
         var distance = Math.sqrt((this.target_x-this.x)**2 + (this.target_y-this.y)**2);
-        if (!this.dragging && distance > 2.0) {
+        if (!this.dragging && distance > 8.0) {
             this.x = this.x - this.vx*((this.x-this.target_x)/(Math.abs(this.x-this.target_x) + Math.abs(this.y-this.target_y)));
             this.y = this.y - this.vy*((this.y-this.target_y)/(Math.abs(this.x-this.target_x) + Math.abs(this.y-this.target_y)));
-        } else if (!this.dragging && distance < 2.0){
+        } else if (!this.dragging && distance < 8.0){
             this.x = this.target_x;
             this.y = this.target_y;
             this.in_position = true;
         }
-        if (this.vx < 2){
+        if (this.vx < 8){
           this.vx += 0.05;
           this.vy += 0.05;
         }
