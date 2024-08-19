@@ -1,8 +1,4 @@
 import circle from "./circle.js";
-
-
-console.log("ich wurde geladen");
-
 const canvas = document.getElementById("canvas");
 var circle_size = document.getElementById("circle_size").value;
 const ctx = canvas.getContext("2d");
@@ -14,6 +10,9 @@ let general_dragged = false;
 let general_hovered = false;
 let all_loaded = false;
 let running = false;
+let lines_disappear_animation_done = false;
+let starting_animation_done = false;
+let animiation_color = 65;
 let matrix;
 const balls = [];
 const map = new Map();
@@ -71,13 +70,19 @@ async function main(){
       matrix[ball.id][map.get(children_links[i].name)] = 1;
     } 
   }
+  
+  draw_all_lines("rgb(65 65 65)");
+  /*
+  
+  */
+  
   all_loaded = true;
   for (const element of balls) {
     element.change_circle_size();
     element.draw();
   }
 
-  draw_all_lines(matrix);
+  
 
 }
 
@@ -92,30 +97,73 @@ function clear() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
-async function draw_line_between(ball1, ball2) {
+async function draw_line_between(ball1, ball2,color) {
+  const old_strokestyle = ctx.strokeStyle;
+  ctx.strokeStyle = color; // Farbe der Linie 
   ctx.moveTo(ball1.x, ball1.y);
   ctx.lineTo(ball2.x, ball2.y);
   ctx.stroke();
+  ctx.strokeStyle = old_strokestyle;
 }
 
 async function draw() {
+  console.log("draw");
   if (all_loaded){
     clear();
-  draw_all_lines(matrix);
+    
+    draw_all_lines("grey");
 
-  for (let i = 0; i < matrix.length; i++) {
-    balls[i].follow();
-  }
+    for (let i = 0; i < matrix.length; i++) {
+      balls[i].follow();
+    }
 
-  for (const element of balls) {
-    element.change_circle_gravity();
-    element.change_circle_size();
-    element.draw();
-    //draw_me(element);
-  }
+    for (const element of balls) {
+      element.change_circle_gravity();
+      element.change_circle_size();
+      element.draw();
+      //draw_me(element);
+    }
   raf = window.requestAnimationFrame(draw);
   }
   
+}
+
+async function animation() {
+  if (all_loaded){
+    clear();
+    if ((animiation_color < 255 && !lines_disappear_animation_done) ){
+      animiation_color +=10;
+      draw_all_lines(`rgb(${animiation_color} ${animiation_color} ${animiation_color}`);
+    }
+    if ((lines_disappear_animation_done && animiation_color > 65) ){
+      if (animiation_color > 65){
+        animiation_color -=10;
+      }
+      draw_all_lines(`rgb(${animiation_color} ${animiation_color} ${animiation_color}`);
+    }
+    for (let i = 0; i < matrix.length; i++) {
+      if (animiation_color == 255){
+        balls[i].follow();
+      }
+    }
+    if (animiation_color <= 65 && lines_disappear_animation_done){
+      draw_all_lines(`rgb(${animiation_color} ${animiation_color} ${animiation_color}`);
+    }
+    let found_out_of_position = false;
+    for (const element of balls) {
+      element.change_circle_gravity();
+      element.change_circle_size();
+      element.draw();
+      if (!element.in_position){
+        found_out_of_position = true;
+      }
+    }
+    found_out_of_position ? lines_disappear_animation_done = false : lines_disappear_animation_done = true;
+    if (animiation_color <= 65 && lines_disappear_animation_done){
+      starting_animation_done = true;
+    }
+    raf = window.requestAnimationFrame(animation);
+  }  
 }
 
 async function loadJson() {
@@ -129,10 +177,15 @@ async function loadJson() {
 }
 
 canvas.addEventListener("mousemove", (e) => {
+  if (all_loaded && !running && !starting_animation_done){
+    raf = window.requestAnimationFrame(animation);
+    running = true;
+  }
   if (all_loaded && general_hovered) {
     clear();
-    draw_all_lines(matrix);
+    draw_all_lines(animiation_color);
   }
+  
   const rect = canvas.getBoundingClientRect();
   const scaleX = canvas.width / rect.width;
   const scaleY = canvas.height / rect.height;
@@ -158,14 +211,14 @@ canvas.addEventListener("mousemove", (e) => {
 
 canvas.addEventListener("click", (e) => {
   if (!running) {
-    raf = window.requestAnimationFrame(draw);
+    raf = window.requestAnimationFrame(animation);
     running = true;
   }
 });
 
 window.addEventListener("scroll", (e) => {
   if (!running) {
-    raf = window.requestAnimationFrame(draw);
+    raf = window.requestAnimationFrame(animation);
     running = true;
   }
 });
@@ -173,7 +226,7 @@ window.addEventListener("scroll", (e) => {
 document.getElementById("myModal"),
   addEventListener("click", (e) => {
     if (!running) {
-      raf = window.requestAnimationFrame(draw);
+      raf = window.requestAnimationFrame(animation);
       running = true;
     }
   });
@@ -206,16 +259,17 @@ canvas.addEventListener("mousedown", (e) => {
   found_dragged ? general_dragged = true : general_dragged = false;
 });
 
-async function draw_all_lines() {
-  /*
+
+
+async function draw_all_lines(color) {
+  
   for (let i = 0; i < matrix.length; i++) {
     for (let j = 0; j < matrix.length; j++) {
       if (matrix[i][j] == 1) {
-        draw_line_between(balls[i], balls[j]);
+        draw_line_between(balls[i], balls[j],color);//
       }
     }
   }
-    */
 }
 
 

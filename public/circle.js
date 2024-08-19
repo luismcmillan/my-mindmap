@@ -6,8 +6,8 @@ export default class circle {
       this.y = y;
       this.target_x = target_x;
       this.target_y = target_y;
-      this.vx = 5;
-      this.vy = 5;
+      this.vx = 0.1;
+      this.vy = 0.1;
       this.radius = size;
       this.content = content;
       this.dragging = false;
@@ -19,6 +19,7 @@ export default class circle {
       this.hovered = false;
       this.attraction = 800/document.getElementById("gravity").value;
       this.rejection = document.getElementById("rejection")/100*this.attraction;
+      this.in_position = false;
     }
 
     draw() {
@@ -56,25 +57,20 @@ export default class circle {
         ctx.lineWidth = old_linewidth;  
     }
     
-    follow(parent){
-      var distance = Math.sqrt((parent.x-this.x)**2 + (parent.y-this.y)**2);
-      if (!this.dragging && distance > this.attraction) {
-          this.x = this.x - this.vx*((this.x-parent.x)/(Math.abs(this.x-parent.x) + Math.abs(this.y-parent.y)));
-          this.y = this.y - this.vy*((this.y-parent.y)/(Math.abs(this.x-parent.x) + Math.abs(this.y-parent.y)));
-      } else if (!this.dragging && distance < this.rejection ){
-          this.x = this.x + this.vx*((this.x-parent.x)/(Math.abs(this.x-parent.x) + Math.abs(this.y-parent.y)));
-          this.y = this.y + this.vy*((this.y-parent.y)/(Math.abs(this.x-parent.x) + Math.abs(this.y-parent.y)));
-      }
-    }
 
     follow(){
         var distance = Math.sqrt((this.target_x-this.x)**2 + (this.target_y-this.y)**2);
-        if (!this.dragging && distance > 5.0) {
+        if (!this.dragging && distance > 2.0) {
             this.x = this.x - this.vx*((this.x-this.target_x)/(Math.abs(this.x-this.target_x) + Math.abs(this.y-this.target_y)));
             this.y = this.y - this.vy*((this.y-this.target_y)/(Math.abs(this.x-this.target_x) + Math.abs(this.y-this.target_y)));
-        } else if (!this.dragging && distance < 5.0){
+        } else if (!this.dragging && distance < 2.0){
             this.x = this.target_x;
             this.y = this.target_y;
+            this.in_position = true;
+        }
+        if (this.vx < 2){
+          this.vx += 0.05;
+          this.vy += 0.05;
         }
     }
 
