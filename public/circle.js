@@ -1,6 +1,6 @@
 export default class circle {
     
-    constructor(id,category,name,x, y,target_x,target_y,size, content) {
+    constructor(id,category,is_boss,name,x, y,target_x,target_y,size, content) {
       this.id = id;
       this.x = x;
       this.y = y;
@@ -13,6 +13,7 @@ export default class circle {
       this.dragging = false;
       this.name = name;
       this.category = category;
+      this.is_boss = is_boss;
       this.color = this.set_color();
       this.parent_links = [];
       this.child_links = [];
@@ -20,6 +21,7 @@ export default class circle {
       this.attraction = 800/document.getElementById("gravity").value;
       this.rejection = document.getElementById("rejection")/100*this.attraction;
       this.in_position = false;
+      
     }
 
     draw() {
@@ -35,7 +37,7 @@ export default class circle {
                 //this.parent_links[i].show_text();
                 this.draw_line_to(this.parent_links[i]);
             }
-            this.show_text()
+            this.show_text();
 
         }else{
             
@@ -93,6 +95,9 @@ export default class circle {
         const ctx = canvas.getContext("2d");
         const old_color = ctx.fillStyle;
         ctx.fillStyle = this.color;
+        if(this.is_boss == "true"){
+          this.show_text();
+        }
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
         ctx.closePath();

@@ -8,6 +8,7 @@ class Circle {
 public:
     int id;
     std::string category;
+    std::string is_boss;
     std::string name;
     float x, y;
     int district_x, district_y;
@@ -22,8 +23,8 @@ public:
     std::vector<Circle> parent_links;
     std::vector<Circle> child_links;
 
-    Circle(int id, std::string category,std::string name, float x, float y, float district_x, float district_y,std::string content)
-        : id(id), category(category),name(name), x(x), y(y), district_x(district_x), district_y(district_y),content(content),
+    Circle(int id, std::string category,std::string is_boss,std::string name, float x, float y, float district_x, float district_y,std::string content)
+        : id(id), category(category),is_boss(is_boss),name(name), x(x), y(y), district_x(district_x), district_y(district_y),content(content),
           vx(2), vy(2), color("grey"), dragging(false), hovered(false)
     {
         // These values would be retrieved from a GUI element in JavaScript

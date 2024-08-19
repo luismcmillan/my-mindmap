@@ -31,6 +31,7 @@ async function main(){
       new circle(
         element.id,
         element.category,
+        element.is_boss,
         element.name,
         ctx_width / 2 +
           ctx_width * 0.45 * Math.sin((i / jsoncontent.length) * 2 * Math.PI),
