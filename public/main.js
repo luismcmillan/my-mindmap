@@ -233,11 +233,17 @@ document.getElementById("myModal"),
   });
 
 canvas.addEventListener("mouseout", (e) => {
+  if (!running) {
+    raf = window.requestAnimationFrame(animation);
+    running = true;
+  }
+  /*
   for (const element of balls) {
     element.dragging = false;
   }
   window.cancelAnimationFrame(raf);
   running = false;
+  */
 });
 
 canvas.addEventListener("mousedown", (e) => {

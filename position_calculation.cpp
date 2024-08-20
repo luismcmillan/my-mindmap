@@ -602,8 +602,8 @@ int main()
             sum_x = 0.0;
             sum_y = 0.0;
             local.empty();
-            for(int x = district_x-3; x < district_x+4;x++){
-                for(int y = district_y-3; y < district_y+4;y++){
+            for(int x = district_x-2; x < district_x+3;x++){
+                for(int y = district_y-2; y < district_y+3;y++){
                     if(y >= 0 && y < grid_size && x >= 0 && x < grid_size){
                         local2 = location[x][y];
                         local.insert(local.end(), local2.begin(), local2.end());
