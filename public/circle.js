@@ -1,5 +1,4 @@
 export default class circle {
-    
     constructor(id,category,is_boss,name,x, y,target_x,target_y,size, content) {
       this.id = id;
       this.x = x;
@@ -13,7 +12,11 @@ export default class circle {
       this.dragging = false;
       this.name = name;
       this.category = category;
-      this.is_boss = is_boss;
+      if(is_boss === "true"){
+        this.is_boss = true;
+      }else {
+        this.is_boss = false;
+      }
       this.color = this.set_color();
       this.parent_links = [];
       this.child_links = [];
@@ -26,23 +29,23 @@ export default class circle {
 
     draw() {
         if(this.hovered){
-            this.draw_me_once("black");
+            this.draw_me_once("white");
             for(let i = 0; i< this.child_links.length;i++){
-                this.child_links[i].draw_me_once("black");
+                this.child_links[i].draw_me_once("white");
                 //this.child_links[i].show_text();
                 this.draw_line_to(this.child_links[i]);
             }
             for(let i = 0; i< this.parent_links.length;i++){
-                this.parent_links[i].draw_me_once("black");
+                this.parent_links[i].draw_me_once("white");
                 //this.parent_links[i].show_text();
                 this.draw_line_to(this.parent_links[i]);
             }
-            this.show_text();
-
+            
         }else{
             
             this.draw_me_normal();
         }
+        //this.show_text();
       }
 
       draw_line_to(ball) {
@@ -50,8 +53,8 @@ export default class circle {
         const ctx = canvas.getContext("2d");
         const old_strokestyle = ctx.strokeStyle;
         const old_linewidth = ctx.lineWidth;
-        ctx.strokeStyle = 'black'; // Farbe der Linie
-        ctx.lineWidth = 2;   
+        ctx.strokeStyle = "white"; // Farbe der Linie
+        ctx.lineWidth = 3;   
         ctx.moveTo(this.x, this.y);
         ctx.lineTo(ball.x, ball.y);
         ctx.stroke();
@@ -61,6 +64,7 @@ export default class circle {
     
 
     follow(){
+
         var distance = Math.sqrt((this.target_x-this.x)**2 + (this.target_y-this.y)**2);
         if (!this.dragging && distance > 8.0) {
             this.x = this.x - this.vx*((this.x-this.target_x)/(Math.abs(this.x-this.target_x) + Math.abs(this.y-this.target_y)));
@@ -79,15 +83,18 @@ export default class circle {
     
 
     show_text(){
-        const canvas = document.getElementById("canvas");
-        const ctx = canvas.getContext("2d");
-        const old_color = ctx.fillStyle;
-        ctx.font = '20px Arial';
-        ctx.textAlign = 'center';
-        ctx.fillStyle = "black";
-        ctx.fillText(this.name, this.x, this.y - this.radius);
-        ctx.fill();
-        ctx.fillStyle = old_color;
+      if(this.hovered || this.dragging || this.is_boss){
+          console.log(this.hovered +" " +this.dragging+" "+ this.is_boss);
+          const canvas = document.getElementById("canvas");
+          const ctx = canvas.getContext("2d");
+          const old_color = ctx.fillStyle;
+          ctx.font = '20px Arial';
+          ctx.textAlign = 'center';
+          ctx.fillStyle = "black";
+          ctx.fillText(this.name, this.x, this.y - this.radius);
+          ctx.stroke();
+          ctx.fillStyle = old_color;
+      }
     }
 
     draw_me_normal(){
@@ -95,9 +102,6 @@ export default class circle {
         const ctx = canvas.getContext("2d");
         const old_color = ctx.fillStyle;
         ctx.fillStyle = this.color;
-        if(this.is_boss == "true"){
-          this.show_text();
-        }
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
         ctx.closePath();
@@ -169,10 +173,7 @@ export default class circle {
                 return "aqua";
                 // Code, der ausgeführt wird, wenn expression === value1
               break;
-            case "Shell":
-                return "black";
-                // Code, der ausgeführt wird, wenn expression === value1
-              break;
+            
             case "Java":
                 return "red";
               break;
@@ -202,6 +203,10 @@ export default class circle {
               break;
             case "SQL":
                 return "DarkMagenta";
+                // Code, der ausgeführt wird, wenn expression === value1
+              break;
+              case "Shell":
+                return "black";
                 // Code, der ausgeführt wird, wenn expression === value1
               break;
             // Weitere cases nach Bedarf
