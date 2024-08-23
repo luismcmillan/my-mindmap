@@ -84,7 +84,6 @@ export default class circle {
 
     show_text(){
       if(this.hovered || this.dragging || this.is_boss){
-          console.log(this.hovered +" " +this.dragging+" "+ this.is_boss);
           const canvas = document.getElementById("canvas");
           const ctx = canvas.getContext("2d");
           const old_color = ctx.fillStyle;
@@ -177,6 +176,9 @@ export default class circle {
             case "Java":
                 return "red";
               break;
+            case "SpringBoot":
+                return "rgb(188, 34, 0  )"
+              break;
             case "HTML":
                 return "coral";
                 // Code, der ausgeführt wird, wenn expression === value1
@@ -186,15 +188,19 @@ export default class circle {
                 // Code, der ausgeführt wird, wenn expression === value1
               break;
             case "AWS":
-                return "orange";
+                return "DimGrey";
                 // Code, der ausgeführt wird, wenn expression === value1
               break;
             case "Web Development":
-                return "DimGrey"
+                return "grey"
                 // Code, der ausgeführt wird, wenn expression === value1
               break;
             case "Javascript":
                 return "DarkGreen";
+                // Code, der ausgeführt wird, wenn expression === value1
+              break;
+              case "TypeScript":
+                return "rgb(72, 132, 200)";
                 // Code, der ausgeführt wird, wenn expression === value1
               break;
             case "GIT":
@@ -207,6 +213,19 @@ export default class circle {
               break;
               case "Shell":
                 return "black";
+                // Code, der ausgeführt wird, wenn expression === value1
+              break;
+
+              case "Python":
+                return "blue";
+                // Code, der ausgeführt wird, wenn expression === value1
+              break;
+              case "Machine Learning":
+                return "yellow";
+                // Code, der ausgeführt wird, wenn expression === value1
+              break;
+              case "Visual Basic for Application":
+                return "green";
                 // Code, der ausgeführt wird, wenn expression === value1
               break;
             // Weitere cases nach Bedarf

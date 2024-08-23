@@ -559,7 +559,7 @@ int main()
     std::vector<int> local;
     std::vector<int> local2;
     int iteration = 0;
-    while (iteration < 5000)
+    while (iteration < 10000)
     {
         iteration++;
         // calculate_new_position(matrix, circles, name_id);

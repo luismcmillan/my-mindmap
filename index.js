@@ -58,6 +58,7 @@ app.get("/update", async (req, res) => {
 
         res.send('Daten aktualisiert');
     } catch (err) {
+        console.log(err);
         console.error('Fehler beim Abrufen der Daten:', err);
         res.status(500).send('Fehler beim Abrufen der Daten');
     } finally {

@@ -13,7 +13,7 @@ let running = false;
 let lines_disappear_animation_done = false;
 let starting_animation_done = false;
 let animiation_color = 65;
-let matrix;
+let matrix = [];
 const balls = [];
 const map = new Map();
 main();
@@ -62,6 +62,8 @@ async function main(){
   }
 
   //Creates connectivity matrix
+
+  /*
   matrix = Array.from({ length: balls.length }, () =>
     Array(balls.length).fill(0)
   );
@@ -71,6 +73,14 @@ async function main(){
       matrix[ball.id][map.get(children_links[i].name)] = 1;
     } 
   }
+    */
+
+  for(const ball of balls){
+    let children_links = ball.get_child_links();
+    matrix.push(children_links)
+  }
+
+
   
   draw_all_lines(`rgb(${animiation_color} ${animiation_color} ${animiation_color}`);
   /*
@@ -114,7 +124,7 @@ async function draw() {
     
     draw_all_lines(`rgb(${animiation_color} ${animiation_color} ${animiation_color}`);
 
-    for (let i = 0; i < matrix.length; i++) {
+    for (let i = 0; i < balls.length; i++) {
       balls[i].follow();
     }
 
@@ -145,7 +155,7 @@ async function animation() {
       }
       draw_all_lines(`rgb(${animiation_color} ${animiation_color} ${animiation_color}`);
     }
-    for (let i = 0; i < matrix.length; i++) {
+    for (let i = 0; i < balls.length; i++) {
       if (animiation_color == 215){
         balls[i].follow();
       }
@@ -280,12 +290,9 @@ canvas.addEventListener("mousedown", (e) => {
 
 
 async function draw_all_lines(color) {
-  
-  for (let i = 0; i < matrix.length; i++) {
-    for (let j = 0; j < matrix.length; j++) {
-      if (matrix[i][j] == 1) {
-        draw_line_between(balls[i], balls[j],color);//
-      }
+  for (let i = 0; i < balls.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      draw_line_between(balls[i], balls[matrix[i][j].id],color);//
     }
   }
 }
