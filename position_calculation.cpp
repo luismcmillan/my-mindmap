@@ -526,6 +526,7 @@ int main()
         Circle myCircle(circle_json[i]["id"],circle_json[i]["category"],circle_json[i]["is_boss"], circle_json[i]["name"], x_pos, y_pos, district_x, district_y, circle_json[i]["content"]);
         circles.emplace_back(myCircle);
     }
+    
 
     // Define all Connections between topics/circles
     for (Circle circle : circles)
@@ -539,6 +540,13 @@ int main()
             circle.parent_links.emplace_back(circles[name_id[circle_json[circle.id]["parents"][i]]]);
         }
         circles[circle.id] = circle;
+    }
+
+    //All circles with no children and just one parent
+    for (Circle circle : circles){
+        if(circle.child_links.size() == circle.parent_links.size() == 1){
+            std::cerr << circle.name << "/// " + circle.child_links[0].name << " " + circle.parent_links[0].name << std::endl;
+        }
     }
     // Declaration of Connectivity matrix
     std::vector<std::vector<int>> matrix(circles_size, std::vector<int>(circles_size, 0));
@@ -559,7 +567,7 @@ int main()
     std::vector<int> local;
     std::vector<int> local2;
     int iteration = 0;
-    while (iteration < 10000)
+    while (iteration < 5000)
     {
         iteration++;
         // calculate_new_position(matrix, circles, name_id);
@@ -602,8 +610,8 @@ int main()
             sum_x = 0.0;
             sum_y = 0.0;
             local.empty();
-            for(int x = district_x-2; x < district_x+3;x++){
-                for(int y = district_y-2; y < district_y+3;y++){
+            for(int x = district_x-1; x < district_x+2;x++){
+                for(int y = district_y-1; y < district_y+2;y++){
                     if(y >= 0 && y < grid_size && x >= 0 && x < grid_size){
                         local2 = location[x][y];
                         local.insert(local.end(), local2.begin(), local2.end());

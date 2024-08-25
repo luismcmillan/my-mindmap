@@ -1,3 +1,5 @@
+import {sharedState } from './state.js';
+
 export default class circle {
     constructor(id,category,is_boss,name,x, y,target_x,target_y,size, content) {
       this.id = id;
@@ -54,12 +56,12 @@ export default class circle {
         const old_strokestyle = ctx.strokeStyle;
         const old_linewidth = ctx.lineWidth;
         ctx.strokeStyle = "white"; // Farbe der Linie
-        ctx.lineWidth = 3;   
+        //ctx.lineWidth = 3;   
         ctx.moveTo(this.x, this.y);
         ctx.lineTo(ball.x, ball.y);
         ctx.stroke();
         ctx.strokeStyle = old_strokestyle; // Farbe der Linie
-        ctx.lineWidth = old_linewidth;  
+        //ctx.lineWidth = old_linewidth;  
     }
     
 
@@ -159,79 +161,7 @@ export default class circle {
     }
 
     set_color(){
-        switch (this.category) {
-            case "C++":
-                return "Aquamarine";
-              // Code, der ausgeführt wird, wenn expression === value1
-              break;
-            case "Docker":
-                return "DodgerBlue";
-                // Code, der ausgeführt wird, wenn expression === value1
-              break;
-            case "CSS":
-                return "aqua";
-                // Code, der ausgeführt wird, wenn expression === value1
-              break;
-            
-            case "Java":
-                return "red";
-              break;
-            case "SpringBoot":
-                return "rgb(188, 34, 0  )"
-              break;
-            case "HTML":
-                return "coral";
-                // Code, der ausgeführt wird, wenn expression === value1
-              break;
-            case "MongoDB":
-                return "Chartreuse";
-                // Code, der ausgeführt wird, wenn expression === value1
-              break;
-            case "AWS":
-                return "DimGrey";
-                // Code, der ausgeführt wird, wenn expression === value1
-              break;
-            case "Web Development":
-                return "grey"
-                // Code, der ausgeführt wird, wenn expression === value1
-              break;
-            case "Javascript":
-                return "DarkGreen";
-                // Code, der ausgeführt wird, wenn expression === value1
-              break;
-              case "TypeScript":
-                return "rgb(72, 132, 200)";
-                // Code, der ausgeführt wird, wenn expression === value1
-              break;
-            case "GIT":
-                return "Olive";
-                // Code, der ausgeführt wird, wenn expression === value1
-              break;
-            case "SQL":
-                return "DarkMagenta";
-                // Code, der ausgeführt wird, wenn expression === value1
-              break;
-              case "Shell":
-                return "black";
-                // Code, der ausgeführt wird, wenn expression === value1
-              break;
-
-              case "Python":
-                return "blue";
-                // Code, der ausgeführt wird, wenn expression === value1
-              break;
-              case "Machine Learning":
-                return "yellow";
-                // Code, der ausgeführt wird, wenn expression === value1
-              break;
-              case "Visual Basic for Application":
-                return "green";
-                // Code, der ausgeführt wird, wenn expression === value1
-              break;
-            // Weitere cases nach Bedarf
-            default:
-              // Code, der ausgeführt wird, wenn keiner der obigen Fälle zutrifft
-          }
+        return sharedState.colors[this.category] || "gray"
     }
 
   }
