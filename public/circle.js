@@ -1,10 +1,12 @@
-import {sharedState } from './state.js';
+import { sharedState, location } from './state.js';
 
-export default class circle {
-    constructor(id,category,is_boss,name,x, y,target_x,target_y,size, content) {
+export default class Circle {
+    constructor(id,category,is_boss,name,x, y,district_x,district_y,target_x,target_y,size, content) {
       this.id = id;
       this.x = x;
       this.y = y;
+      this.district_x = district_x;
+      this.district_y = district_y;
       this.target_x = target_x;
       this.target_y = target_y;
       this.vx = 0.1;
@@ -62,6 +64,9 @@ export default class circle {
         ctx.stroke();
         ctx.strokeStyle = old_strokestyle; // Farbe der Linie
         //ctx.lineWidth = old_linewidth;  
+    }
+    complicated_follow(){
+
     }
     
 
@@ -124,6 +129,36 @@ export default class circle {
         ctx.fillStyle = old_color;
     }
 
+    sort_position() {
+      this.district_x = Circle.sort_cordinate(this.x);
+      this.district_y = Circle.sort_cordinate(this.y);
+  }
+
+  updateDistrict() {
+    const old_district_x = this.district_x;
+    const old_district_y = this.district_y;
+    this.sort_position();
+    if(old_district_x === this.district_x && old_district_y === this.district_y){
+      return;
+    }
+    // Entfernen der ID von der alten Position
+    console.log(old_district_x,"",old_district_y);
+    
+    const oldDistrictArray = location[old_district_x][old_district_y];
+    const indexToRemove = oldDistrictArray.indexOf(this.id);
+    
+    if (indexToRemove !== -1) {
+        // ID aus dem alten Array entfernen
+        oldDistrictArray.splice(indexToRemove, 1);
+        location[this.district_x][this.district_y].push(this.id);
+    } else {
+        console.log('ID nicht in der alten Position gefunden.');
+        return;
+    }
+    
+    
+}
+
     
 
     isPointInside(x, y) {
@@ -163,5 +198,25 @@ export default class circle {
     set_color(){
         return sharedState.colors[this.category] || "gray"
     }
+
+    static sort_cordinate(pos) {
+      const canvasSize = 1000;
+      const maxLevels = 6; // Maximal 2^6 = 64 Positionen
+      let index = 0;
+  
+      for (let i = 0; i < maxLevels; i++) {
+          const threshold = canvasSize / (2 << i); // canvasSize / 2^i
+          if (pos < threshold) {
+              // Wenn pos kleiner als die aktuelle Schwelle ist, bleibt der Index unverändert
+              continue;
+          } else {
+              // Andernfalls wird die Position entsprechend verschoben
+              pos -= threshold;
+              index += (1 << (maxLevels - i - 1)); // 2^(maxLevels-i-1)
+          }
+      }
+      return index;
+    }
+      
 
   }

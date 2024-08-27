@@ -3,6 +3,7 @@ export const sharedState = {
     all_loaded: false,
     general_dragged: false,
     general_hovered: false,
+    grid_size:64,
     lines_disappear_animation_done: false,
     starting_animation_done: false,
     animation_color: 65,
@@ -23,9 +24,11 @@ export const sharedState = {
         "Shell": "black",
         "Python": "blue",
         "Machine Learning": "yellow",
-        "Visual Basic for Application": "green"
+        "Visual Basic for Application": "green",
+        "Apache Kafka": "rgb(200, 200, 200)"
       }
 };
 export const balls = [];
 export const map = new Map();
 export const matrix = [];
+export const location = Array(sharedState.grid_size).fill().map(() => Array(sharedState.grid_size).fill().map(() => []));

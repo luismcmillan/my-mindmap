@@ -1,5 +1,5 @@
-import circle from "./circle.js";
-import { balls,map,matrix, sharedState } from './state.js'; // Importieren des sharedState aus state.js
+import Circle from "./circle.js";
+import { balls,map,matrix, location,sharedState } from './state.js'; // Importieren des sharedState aus state.js
 import { handleMouseMove, handleMouseDown, handleMouseUp , handleTouchStart, handleTouchMove, handleTouchEnd} from './eventFunction.js';
 import { animation,draw_all_lines, getColor } from './animationHandler.js';
 
@@ -18,12 +18,13 @@ async function main() {
 
   createCircles(jsoncontent);
   createConnections(jsoncontent);
-  createConnectivityMatrix();
+  fillConnectivityMatrix();
   
   draw_all_lines(getColor());
   sharedState.all_loaded = true;
   
   balls.forEach(ball => {
+    location[ball.district_x][ball.district_y].push(ball.id);
     ball.change_circle_size();
     ball.draw();
   });
@@ -40,15 +41,20 @@ async function loadJson() {
 
 function createCircles(jsoncontent) {
   jsoncontent.forEach((element, i) => {
+    const pos_x = ctx_width / 2 + ctx_width * 0.45 * Math.sin((i / jsoncontent.length) * 2 * Math.PI);
+    const pos_y = ctx_height / 2 + ctx_width * 0.45 * Math.cos((i / jsoncontent.length) * 2 * Math.PI);
+
     map.set(element.name, element.id);
     balls.push(
-      new circle(
+      new Circle(
         element.id,
         element.category,
         element.is_boss,
         element.name,
-        ctx_width / 2 + ctx_width * 0.45 * Math.sin((i / jsoncontent.length) * 2 * Math.PI),
-        ctx_height / 2 + ctx_width * 0.45 * Math.cos((i / jsoncontent.length) * 2 * Math.PI),
+        pos_x,
+        pos_y,
+        Circle.sort_cordinate(pos_x),
+        Circle.sort_cordinate(pos_y),
         element.x_pos,
         element.y_pos,
         circle_size,
@@ -68,11 +74,13 @@ function createConnections(jsoncontent) {
   });
 }
 
-function createConnectivityMatrix() {
+function fillConnectivityMatrix() {
   balls.forEach(ball => {
     matrix.push(ball.get_child_links());
   });
 }
+
+
 
 function startAnimation() {
   if (!sharedState.running) {

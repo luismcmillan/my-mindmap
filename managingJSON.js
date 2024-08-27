@@ -12,6 +12,7 @@ export default class jsonManager {
                                         topics.rows[i]["content_name"],
                                         topics.rows[i]["content"],
                                         topics.rows[i]["category"],
+                                        topics.rows[i]["priority"],
                                         topics.rows[i]["is_boss"],
                                         topics.rows[i]["target_x"],
                                         topics.rows[i]["target_y"],
@@ -23,12 +24,13 @@ export default class jsonManager {
         return jsonArray;
     }
     
-    createJSONObject(id,content_name, content, category,is_boss, target_x, target_y,parents,children) {
+    createJSONObject(id,content_name, content, category,priority,is_boss, target_x, target_y,parents,children) {
         // Erstelle ein JSON-Objekt mit den übergebenen Parametern
         let jsonObject = {
             "id": id,
             "name": content_name,
             "category": category,
+            "priority": priority,
             "is_boss": is_boss,
             "content": content,
             "target_x": target_x,

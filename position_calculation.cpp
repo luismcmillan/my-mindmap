@@ -12,7 +12,33 @@ using json = nlohmann::json;
 const int grid_size = canvas_size / 12.5;
 std::vector<std::vector<std::vector<int>>> location(grid_size, std::vector<std::vector<int>>(grid_size));
 
-int sort_position(float pos)
+int new_sort_position(float pos, float canvas_variable_size)
+{
+    
+    const int max_levels = 6; // Maximal 2^6 = 64 Positionen
+    int index = 0;
+
+    for (int i = 0; i < max_levels; ++i)
+    {
+        float threshold = canvas_size / (2 << i); // canvas_size / 2^i
+        
+        if (pos < threshold)
+        {
+            // Wenn pos kleiner als die aktuelle Schwelle ist, bleibt der Index unverändert
+            continue;
+        }
+        else
+        {
+            // Andernfalls wird die Position entsprechend verschoben
+            pos -= threshold;
+            index += (1 << (max_levels - i - 1)); // 2^(max_levels-i-1)
+        }
+    }
+
+    return index;
+}
+
+int soffrt_position(float pos)
 {
     if (pos < canvas_size / 2.0)
     { // < 400
@@ -520,8 +546,8 @@ int main()
         angle = i / ((float)circles_size);
         x_pos = canvas_size / 2.0 + canvas_size * 0.45 * std::sin(angle * 2.0 * M_PI);
         y_pos = canvas_size / 2.0 + canvas_size * 0.45 * std::cos(angle * 2.0 * M_PI);
-        district_x = sort_position(x_pos);
-        district_y = sort_position(y_pos);
+        district_x = new_sort_position(x_pos, canvas_size);
+        district_y = new_sort_position(y_pos, canvas_size);
         location[district_x][district_y].emplace_back(circle_json[i]["id"]);
         Circle myCircle(circle_json[i]["id"],circle_json[i]["category"],circle_json[i]["is_boss"], circle_json[i]["name"], x_pos, y_pos, district_x, district_y, circle_json[i]["content"]);
         circles.emplace_back(myCircle);
@@ -545,7 +571,7 @@ int main()
     //All circles with no children and just one parent
     for (Circle circle : circles){
         if(circle.child_links.size() == circle.parent_links.size() == 1){
-            std::cerr << circle.name << "/// " + circle.child_links[0].name << " " + circle.parent_links[0].name << std::endl;
+            //std::cerr << circle.name << "/// " + circle.child_links[0].name << " " + circle.parent_links[0].name << std::endl;
         }
     }
     // Declaration of Connectivity matrix
@@ -593,8 +619,8 @@ int main()
                 circles[i].follow(sum_x/follow_count, sum_y/follow_count);
                 old_district_x = circles[i].district_x;
                 old_district_y = circles[i].district_y;
-                district_x = sort_position(circles[i].x);
-                district_y = sort_position(circles[i].y);
+                district_x = new_sort_position(circles[i].x, canvas_size);
+                district_y = new_sort_position(circles[i].y, canvas_size);
                 circles[i].district_x = district_x;
                 circles[i].district_y = district_y;
                 local = location[old_district_x][old_district_y];
@@ -627,8 +653,8 @@ int main()
                 circles[i].keep_distance_to(sum_x/local.size(),sum_y/local.size());
                 old_district_x = circles[i].district_x;
                 old_district_y = circles[i].district_y;
-                district_x = sort_position(circles[i].x);
-                district_y = sort_position(circles[i].y);
+                district_x = new_sort_position(circles[i].x, canvas_size);
+                district_y = new_sort_position(circles[i].y, canvas_size);
                 circles[i].district_x = district_x;
                 circles[i].district_y = district_y;
                 local = location[old_district_x][old_district_y];
@@ -682,6 +708,6 @@ int main()
     }
     datei << jsonObj.dump(2) << std::endl;
     datei.close();
-    std::cout << "Text wurde erfolgreich in die Datei geschrieben." << std::endl;
+    std::cout << "Text wurde mit neuem Algorithmus erfolgreich in die Datei geschrieben." << std::endl;
     return 0;
 }
