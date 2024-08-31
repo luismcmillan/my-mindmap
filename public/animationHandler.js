@@ -39,6 +39,8 @@ export async function animation() {
       
       // Text anzeigen
       ball.show_text();
+      
+      sharedState.rotation_pos = (sharedState.rotation_pos +0.000001)%360;
   
       if (!ball.in_position) found_out_of_position = true;
     });

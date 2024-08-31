@@ -4,6 +4,7 @@ export const sharedState = {
     general_dragged: false,
     general_hovered: false,
     grid_size:64,
+    rotation_pos: 0,
     lines_disappear_animation_done: false,
     starting_animation_done: false,
     animation_color: 65,

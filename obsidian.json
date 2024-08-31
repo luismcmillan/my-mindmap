@@ -184,19 +184,21 @@
   },
   {
     "id": 10,
-    "name": "Anchor Elements",
-    "category": "HTML",
-    "priority": 2,
-    "is_boss": "false",
-    "content": "- [[HTML Hypertext Markup Language]]<br/>```HTML<br/><a href=\"http://www.google.com\"> This is a link </a><br/>```<br/><br/>![[HTML Attributes]]<br/>",
+    "name": "TypeScript",
+    "category": "TypeScript",
+    "priority": 4,
+    "is_boss": "true",
+    "content": "[[JavaScript]]<br/>[Boss]<br/>[[TypeScript Basics]]<br/>![[ReadOnlySet<Class>]]<br/><br/>![[NestJS]]<br/>",
     "target_x": 0,
     "target_y": 0,
     "parents": [
-      "HTML Hypertext Markup Language"
+      "TypeScript Shell Commands"
     ],
     "children": [
-      "HTML Hypertext Markup Language",
-      "HTML Attributes"
+      "JavaScript",
+      "TypeScript Basics",
+      "ReadOnlySet<Class>",
+      "NestJS"
     ]
   },
   {
@@ -456,21 +458,20 @@
   },
   {
     "id": 25,
-    "name": "Message Keys",
-    "category": "Apache Kafka",
-    "priority": 3,
+    "name": "Linux Postgres Config",
+    "category": "Linux Raspberry PI",
+    "priority": 2,
     "is_boss": "false",
-    "content": "- Jeder Nachricht kann ein optionaler Message Key zugeordnet werden. Der Message Key wird verwendet, um Nachrichten einer bestimmten [[Partition]] innerhalb eines [[Topic]] zuzuordnen. Nachrichten mit demselben Message Key landen in der gleichen [[Partition]], was die Nachrichtenreihenfolge für diesen Message Key garantiert.<br/>",
+    "content": "[[Linux Commands]]<br/>[[SQL/SQL]]<br/>```Shell<br/><br/>sudo nano /etc/postgresql/<version>/main/postgresql.conf // listen_addresses = '*'<br/>sudo nano /etc/postgresql/<version>/main/pg_hba.conf //host all all ip-adresse/24 md5<br/><br/>```<br/>",
     "target_x": 0,
     "target_y": 0,
     "parents": [
-      "Apache Kafka",
-      "Producer"
+      "Linux Commands",
+      "SQL"
     ],
     "children": [
-      "Partition",
-      "Topic",
-      "Partition"
+      "Linux Commands",
+      "SQL/SQL"
     ]
   },
   {
@@ -693,7 +694,7 @@
     "category": "CSS",
     "priority": 3,
     "is_boss": "false",
-    "content": "# Inline<br/>- [[HTML Hypertext Markup Language]]<br/>```HTML<br/><html style=\"background: blue\"><br/></html><br/>```<br/># Internal<br/>```HTML<br/><html><br/>\t<head><br/>\t\t<style><br/>\t\t\thtml { #Selector<br/>\t\t\t\tbackground: redM<br/>\t\t\t}<br/>\t\t</style><br/>\t</head><br/></html><br/>```<br/><br/># External<br/>```HTML<br/><html><br/>\t<head><br/>\t\t<link<br/>\t\t\trel=\"stylesheet\" #relationship<br/>\t\t\thref=\"./styles.css\" #location<br/>\t\t/><br/>\t</head><br/></html><br/><br/>styles.css<br/>html {<br/>\tbackground:green;<br/>}<br/><br/>```<br/><br/><br/>![[CSS Selectors]]<br/><br/><br/>![[Font Properties]]<br/>",
+    "content": "# Inline<br/>- [[HTML]]<br/>```HTML<br/><html style=\"background: blue\"><br/></html><br/>```<br/># Internal<br/>```HTML<br/><html><br/>\t<head><br/>\t\t<style><br/>\t\t\thtml { #Selector<br/>\t\t\t\tbackground: redM<br/>\t\t\t}<br/>\t\t</style><br/>\t</head><br/></html><br/>```<br/><br/># External<br/>```HTML<br/><html><br/>\t<head><br/>\t\t<link<br/>\t\t\trel=\"stylesheet\" #relationship<br/>\t\t\thref=\"./styles.css\" #location<br/>\t\t/><br/>\t</head><br/></html><br/><br/>styles.css<br/>html {<br/>\tbackground:green;<br/>}<br/><br/>```<br/><br/><br/>![[CSS Selectors]]<br/><br/><br/>![[Font Properties]]<br/>",
     "target_x": 0,
     "target_y": 0,
     "parents": [
@@ -702,7 +703,7 @@
       "CSS Selectors"
     ],
     "children": [
-      "HTML Hypertext Markup Language",
+      "HTML",
       "CSS Selectors",
       "Font Properties"
     ]
@@ -713,10 +714,27 @@
     "category": "Apache Kafka",
     "priority": 15,
     "is_boss": "true",
-    "content": "[Boss]<br/>- [[Kafka-Cluster]]<br/>- [[Broker]]<br/>- [[Zookeeper]]<br/>- [[Consumer Groups]]<br/>- [[Consumer Offsets]]<br/>- [[Consumers]]<br/>- [[Deserialization]]<br/>- [[Message Keys]]<br/>- [[Offset]]<br/>- [[Partition]]<br/>- [[Producer]]<br/>- [[Producer Acknowlegdements]]<br/>- [[Topic]]<br/>- [[Topic Durability]]<br/>- [[Zookeeper]]<br/>",
+    "content": "[Boss]<br/><br/><br/>- [[Kafka-Cluster]]<br/>- [[Broker]]<br/>- [[Zookeeper]]<br/>- [[Consumer Groups]]<br/>- [[Consumer Offsets]]<br/>- [[Consumers]]<br/>- [[Deserialization]]<br/>- [[Message Keys]]<br/>- [[Offset]]<br/>- [[Partition]]<br/>- [[Producer]]<br/>- [[Producer Acknowlegdements]]<br/>- [[Topic]]<br/>- [[Topic Durability]]<br/>- [[Zookeeper]]<br/>",
     "target_x": 0,
     "target_y": 0,
-    "parents": [],
+    "parents": [
+      "Consumer Offsets",
+      "Producer Acknowlegdements",
+      "Deserialization",
+      "Topic",
+      "Broker",
+      "Consumer Groups",
+      "Offset",
+      "Zookeeper",
+      "Producer",
+      "Kafka KRaft",
+      "Consumers",
+      "Message Keys",
+      "Topic Durability",
+      "Topic Replication",
+      "Partition",
+      "Kafka-Cluster"
+    ],
     "children": [
       "Kafka-Cluster",
       "Broker",
@@ -739,15 +757,16 @@
     "id": 40,
     "name": "Consumer Offsets",
     "category": "Apache Kafka",
-    "priority": 6,
+    "priority": 7,
     "is_boss": "false",
-    "content": "- **Consumer Offsets**: Jeder [[Consumers]] in einer [[Consumer Groups]] verfolgt seine eigene Position innerhalb der [[Partition]] durch [[Offset]]-Tracking. Die [[Offset]] können entweder vom [[Consumers]] selbst oder von Kafka in speziellen System-Topics gespeichert werden. Dies ermöglicht es, nach einem Ausfall oder Neustart den Konsumfortschritt fortzusetzen.<br/>",
+    "content": "[[Apache Kafka]]<br/>- **Consumer Offsets**: Jeder [[Consumers]] in einer [[Consumer Groups]] verfolgt seine eigene Position innerhalb der [[Partition]] durch [[Offset]]-Tracking. Die [[Offset]] können entweder vom [[Consumers]] selbst oder von Kafka in speziellen System-Topics gespeichert werden. Dies ermöglicht es, nach einem Ausfall oder Neustart den Konsumfortschritt fortzusetzen.<br/>- **__consumer_offsets**<br/>",
     "target_x": 0,
     "target_y": 0,
     "parents": [
       "Apache Kafka"
     ],
     "children": [
+      "Apache Kafka",
       "Consumers",
       "Consumer Groups",
       "Partition",
@@ -760,15 +779,16 @@
     "id": 41,
     "name": "Producer Acknowlegdements",
     "category": "Apache Kafka",
-    "priority": 3,
+    "priority": 4,
     "is_boss": "false",
-    "content": "- Beim Senden von Nachrichten kann der [[Producer]] angeben, wie viele [[Broker]] die Nachricht bestätigen müssen, bevor der [[Producer]] als erfolgreich abgeschlossen betrachtet wird. Dies wird durch die Konfiguration der Bestätigungsstufen (acks) gesteuert und beeinflusst die Zuverlässigkeit und Dauerhaftigkeit der Nachrichten.<br/>",
+    "content": "[[Apache Kafka]]<br/>- Beim Senden von Nachrichten kann der [[Producer]] angeben, wie viele [[Broker]] die Nachricht bestätigen müssen, bevor der [[Producer]] als erfolgreich abgeschlossen betrachtet wird. Dies wird durch die Konfiguration der Bestätigungsstufen (acks) gesteuert und beeinflusst die Zuverlässigkeit und Dauerhaftigkeit der Nachrichten.<br/>\t- acks=0: Producer wont wait for acknowledgement (possible data loss)<br/>\t- acks=1: Producer will wait for leader ackknowledgement (limited data loss)<br/>\t- acks=all: Leader + replicas ackknowledgement (no data loss)<br/>![[Pasted image 20240827171512.png]]<br/>",
     "target_x": 0,
     "target_y": 0,
     "parents": [
       "Apache Kafka"
     ],
     "children": [
+      "Apache Kafka",
       "Producer",
       "Broker",
       "Producer"
@@ -778,15 +798,16 @@
     "id": 42,
     "name": "Deserialization",
     "category": "Apache Kafka",
-    "priority": 2,
+    "priority": 3,
     "is_boss": "false",
-    "content": "- Beim Empfang von Nachrichten durch einen [[Consumers]] müssen diese Nachrichten werden. Das bedeutet, dass die Nachrichten von ihrem bytebasierten Format in ein verständliches Format umgewandelt werden. Dies ermöglicht den [[Consumers]], die Daten korrekt zu verarbeiten.<br/>",
+    "content": "[[Apache Kafka]]<br/>- Beim Empfang von Nachrichten durch einen [[Consumers]] müssen diese Nachrichten werden. Das bedeutet, dass die Nachrichten von ihrem bytebasierten Format in ein verständliches Format umgewandelt werden. Dies ermöglicht den [[Consumers]], die Daten korrekt zu verarbeiten.<br/>- der Typ **darf nicht geändert** werden während des topic lifecycle<br/>",
     "target_x": 0,
     "target_y": 0,
     "parents": [
       "Apache Kafka"
     ],
     "children": [
+      "Apache Kafka",
       "Consumers",
       "Consumers"
     ]
@@ -795,9 +816,9 @@
     "id": 43,
     "name": "Topic",
     "category": "Apache Kafka",
-    "priority": 5,
+    "priority": 6,
     "is_boss": "false",
-    "content": "- In Kafka werden Nachrichten in sogenannten [[Topic]] organisiert. Ein [[Topic]] ist ein logischer Kanal, auf den Produzenten [[Producer]] Nachrichten senden und von dem Konsumenten [[Consumers]] Nachrichten empfangen. Ein [[Topic]] ist wie eine Warteschlange, die Daten zu einem bestimmten Thema enthält.<br/>",
+    "content": "[[Apache Kafka]]<br/>- In Kafka werden Nachrichten in sogenannten [[Topic]] organisiert. Ein [[Topic]] ist ein logischer Kanal, auf den Produzenten [[Producer]] Nachrichten senden und von dem Konsumenten [[Consumers]] Nachrichten empfangen. Ein [[Topic]] ist wie eine Warteschlange, die Daten zu einem bestimmten Thema enthält.<br/>- Topic replication factor<br/>\t- Topics should have a replication factor > 1 (usually between 2 and 3)<br/>![[Pasted image 20240827171550.png]]<br/>",
     "target_x": 0,
     "target_y": 0,
     "parents": [
@@ -814,6 +835,7 @@
       "Partition"
     ],
     "children": [
+      "Apache Kafka",
       "Topic",
       "Topic",
       "Producer",
@@ -825,9 +847,9 @@
     "id": 44,
     "name": "Broker",
     "category": "Apache Kafka",
-    "priority": 2,
+    "priority": 4,
     "is_boss": "false",
-    "content": "- Ein Kafka-Cluster besteht aus mehreren Brokern, die die Kafka-Instanzen repräsentieren. Brokers sind dafür verantwortlich, Nachrichten zu empfangen, zu speichern und weiterzuleiten. Jeder Broker kann mehrere [[Topic]] und [[Partition]] verwalten.<br/>",
+    "content": "[[Apache Kafka]]<br/>- Ein Kafka-Cluster besteht aus mehreren Brokern, die die Kafka-Instanzen repräsentieren. Brokers sind dafür verantwortlich, Nachrichten zu empfangen, zu speichern und weiterzuleiten. Jeder Broker kann mehrere [[Topic]] und [[Partition]] verwalten.<br/>- Every Kafka broker is also called a (Bootstrap server)<br/>\t- That means that **you only need to connect to one broker**, and the Kafka clients will know how to be connected to the entire cluster<br/>- jeder broker hat eigene Identifikations ID<br/>- nachdem man sich verbindet zu einem Broker ist man mit dem gesamten [[Kafka-Cluster]] verbunden<br/>- Jeder broker kennt alle anderen Broker, Topics und partitions<br/>",
     "target_x": 0,
     "target_y": 0,
     "parents": [
@@ -839,17 +861,19 @@
       "Kafka-Cluster"
     ],
     "children": [
+      "Apache Kafka",
       "Topic",
-      "Partition"
+      "Partition",
+      "Kafka-Cluster"
     ]
   },
   {
     "id": 45,
     "name": "Consumer Groups",
     "category": "Apache Kafka",
-    "priority": 6,
+    "priority": 7,
     "is_boss": "false",
-    "content": "- [[Consumer Groups]] bestehen aus mehreren [[Consumers]], die gemeinsam Nachrichten aus einem [[Topic]] konsumieren. Jede [[Partition]] eines [[Topic]] wird nur von einem [[Consumers]] innerhalb der Gruppe bearbeitet, was eine horizontale Skalierung ermöglicht und die Lastverteilung verbessert.<br/>",
+    "content": "[[Apache Kafka]]<br/>- [[Consumer Groups]] bestehen aus mehreren [[Consumers]], die gemeinsam Nachrichten aus einem [[Topic]] konsumieren. Jede [[Partition]] eines [[Topic]] wird nur von einem [[Consumers]] innerhalb der Gruppe bearbeitet, was eine horizontale Skalierung ermöglicht und die Lastverteilung verbessert.<br/>- To create distinct consumer groups, use the consumer property **group.id**<br/>",
     "target_x": 0,
     "target_y": 0,
     "parents": [
@@ -859,6 +883,7 @@
       "Zookeeper"
     ],
     "children": [
+      "Apache Kafka",
       "Consumer Groups",
       "Consumers",
       "Topic",
@@ -871,9 +896,9 @@
     "id": 46,
     "name": "Offset",
     "category": "Apache Kafka",
-    "priority": 4,
+    "priority": 5,
     "is_boss": "false",
-    "content": "- Jede Nachricht innerhalb einer [[Partition]] hat eine eindeutige Identifikationsnummer, die als [[Offset]] bezeichnet wird. Offsets sind fortlaufende Nummern, die die Reihenfolge der Nachrichten in einer [[Partition]] darstellen. [[Consumers]] verwenden Offsets, um ihren Fortschritt bei der Nachrichtenverarbeitung zu verfolgen.<br/>",
+    "content": "[[Apache Kafka]]<br/>- Jede Nachricht innerhalb einer [[Partition]] hat eine eindeutige Identifikationsnummer, die als [[Offset]] bezeichnet wird. Offsets sind fortlaufende Nummern, die die Reihenfolge der Nachrichten in einer [[Partition]] darstellen. [[Consumers]] verwenden Offsets, um ihren Fortschritt bei der Nachrichtenverarbeitung zu verfolgen.<br/>",
     "target_x": 0,
     "target_y": 0,
     "parents": [
@@ -882,6 +907,7 @@
       "Offset"
     ],
     "children": [
+      "Apache Kafka",
       "Partition",
       "Offset",
       "Partition",
@@ -890,42 +916,63 @@
   },
   {
     "id": 47,
+    "name": "nginx server starten",
+    "category": "Linux Raspberry PI",
+    "priority": 1,
+    "is_boss": "false",
+    "content": "[[Linux Commands]]<br/>```Shell<br/>sudo yum install nginx -y<br/>sudo systemctl start nginx<br/>sudo vi /etc/nginx/nginx.conf //Konfugurieren<br/>```<br/>",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "Linux Commands"
+    ],
+    "children": [
+      "Linux Commands"
+    ]
+  },
+  {
+    "id": 48,
     "name": "Zookeeper",
     "category": "Apache Kafka",
-    "priority": 6,
+    "priority": 8,
     "is_boss": "false",
-    "content": "- Zookeeper ist ein zentrales Koordinationssystem, das von Kafka verwendet wird, um Konfigurationsdaten zu verwalten, den Status des Clusters zu überwachen und die Koordination zwischen den verschiedenen [[Broker]] zu gewährleisten. [[Zookeeper]] verwaltet Metadaten wie [[Broker]]-Informationen, [[Topic]]-Partitionen und [[Consumer Groups]]. Seit neueren Versionen von Kafka wird die Rolle von [[Zookeeper]] zunehmend durch den eigenen Kafka-Controller ersetzt, um die Komplexität zu reduzieren.<br/>",
+    "content": "[[Apache Kafka]]<br/>- Zookeeper ist ein zentrales Koordinationssystem, das von Kafka verwendet wird, um Konfigurationsdaten zu verwalten, den Status des Clusters zu überwachen und die Koordination zwischen den verschiedenen [[Broker]] zu gewährleisten. [[Zookeeper]] verwaltet Metadaten wie [[Broker]]-Informationen, [[Topic]]-Partitionen und [[Consumer Groups]]. Seit neueren Versionen von Kafka wird die Rolle von [[Zookeeper]] zunehmend durch den eigenen Kafka-Controller ersetzt, um die Komplexität zu reduzieren.<br/>- Kafka 2.x **funktioniert nicht ohne Zookeeper**<br/>- Kafka 3.x **funktioniert auch ohne Zookeeper (KIP-500) stattdessen mit [[Kafka KRaft]] instead**<br/>- Kafka 4.x hat kein Zookeper mehr<br/>- Zookeper arbeitet mir einer ungerade zahl von Servern (1,3,5,7)<br/>- Zookeeper is also less secure than Kafka, and therefore Zookeeper ports should only be opened to allow traffic from kafka brokers NOT Kafka Clients<br/>- **Never USE Zookeeper as a configuration in your kafka clients, and other programs that connect to Kafka.<br/>",
     "target_x": 0,
     "target_y": 0,
     "parents": [
       "Apache Kafka",
-      "Zookeeper"
+      "Zookeeper",
+      "Kafka KRaft"
     ],
     "children": [
+      "Apache Kafka",
       "Broker",
       "Zookeeper",
       "Broker",
       "Topic",
       "Consumer Groups",
-      "Zookeeper"
+      "Zookeeper",
+      "Kafka KRaft"
     ]
   },
   {
-    "id": 48,
+    "id": 49,
     "name": "Producer",
     "category": "Apache Kafka",
-    "priority": 6,
+    "priority": 7,
     "is_boss": "false",
-    "content": "Producer sind die Komponenten, die Nachrichten an Kafka [[Topic]] senden. Sie entscheiden, in welche [[Partition]] innerhalb eines [[Topic]] die Nachricht geschrieben wird, entweder zufällig oder basierend auf bestimmten Regeln. [[Producer]] verwenden [[Message Keys]], um Nachrichten gezielt einer [[Partition]] zuzuordnen.<br/>",
+    "content": "[[Apache Kafka]]<br/>Producer sind die Komponenten, die Nachrichten an Kafka [[Topic]] senden. Sie entscheiden, in welche [[Partition]] innerhalb eines [[Topic]] die Nachricht geschrieben wird, entweder zufällig oder basierend auf bestimmten Regeln. [[Producer]] verwenden [[Message Keys]], um Nachrichten gezielt einer [[Partition]] zuzuordnen.<br/>",
     "target_x": 0,
     "target_y": 0,
     "parents": [
       "Apache Kafka",
       "Producer Acknowlegdements",
       "Topic",
-      "Producer"
+      "Producer",
+      "Partition"
     ],
     "children": [
+      "Apache Kafka",
       "Topic",
       "Partition",
       "Topic",
@@ -935,12 +982,29 @@
     ]
   },
   {
-    "id": 49,
+    "id": 50,
+    "name": "Kafka KRaft",
+    "category": "Apache Kafka",
+    "priority": 2,
+    "is_boss": "false",
+    "content": "[[Apache Kafka]]<br/>- In 2020, the Apache Kafka project started to work **to remove the Zookeeper dependency**<br/>- [[Zookeeper]] shows scaling issues when Kafka clusters have > 100.000 partitions<br/>- By removing Zookeeper, Apache Kafka can<br/>\t- Scale to millions of partitions, and becomes easier to maintain and set-up<br/>\t- Improve stability, makes it easier to monitor, support and administer<br/>",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "Zookeeper"
+    ],
+    "children": [
+      "Apache Kafka",
+      "Zookeeper"
+    ]
+  },
+  {
+    "id": 51,
     "name": "Consumers",
     "category": "Apache Kafka",
-    "priority": 5,
+    "priority": 6,
     "is_boss": "false",
-    "content": "[[Consumers]] sind die Komponenten, die Nachrichten aus Kafka [[Topic]] lesen. Sie abonnieren ein oder mehrere [[Topic]] und konsumieren die Nachrichten, die in den [[Partition]] dieser [[Topic]] gespeichert sind.<br/>",
+    "content": "[[Apache Kafka]]<br/>[[Consumers]] sind die Komponenten, die Nachrichten aus Kafka [[Topic]] lesen. Sie abonnieren ein oder mehrere [[Topic]] und konsumieren die Nachrichten, die in den [[Partition]] dieser [[Topic]] gespeichert sind.<br/>",
     "target_x": 0,
     "target_y": 0,
     "parents": [
@@ -953,6 +1017,7 @@
       "Consumers"
     ],
     "children": [
+      "Apache Kafka",
       "Consumers",
       "Topic",
       "Topic",
@@ -961,36 +1026,58 @@
     ]
   },
   {
-    "id": 50,
+    "id": 52,
+    "name": "Message Keys",
+    "category": "Apache Kafka",
+    "priority": 4,
+    "is_boss": "false",
+    "content": "[[Apache Kafka]]<br/>- Jeder Nachricht kann ein optionaler Message Key zugeordnet werden. Der Message Key wird verwendet, um Nachrichten einer bestimmten [[Partition]] innerhalb eines [[Topic]] zuzuordnen. Nachrichten mit demselben Message Key landen in der gleichen [[Partition]], was die Nachrichtenreihenfolge für diesen Message Key garantiert.<br/>",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "Apache Kafka",
+      "Producer"
+    ],
+    "children": [
+      "Apache Kafka",
+      "Partition",
+      "Topic",
+      "Partition"
+    ]
+  },
+  {
+    "id": 53,
     "name": "Topic Durability",
     "category": "Apache Kafka",
-    "priority": 3,
+    "priority": 4,
     "is_boss": "false",
-    "content": "- **Topic Durability**: Die Dauerhaftigkeit eines [[Topic]] bezieht sich auf die Fähigkeit von Kafka, Nachrichten zuverlässig zu speichern und vor Datenverlust zu schützen. Durch [[Topic Replication]] und die Konfiguration der Bestätigungsstufen (acks) wird sichergestellt, dass Nachrichten nicht verloren gehen, selbst wenn [[Broker]] ausfallen.<br/>",
+    "content": "[[Apache Kafka]]<br/>- **Topic Durability**: Die Dauerhaftigkeit eines [[Topic]] bezieht sich auf die Fähigkeit von Kafka, Nachrichten zuverlässig zu speichern und vor Datenverlust zu schützen. Durch [[Topic Replication]] und die Konfiguration der Bestätigungsstufen (acks) wird sichergestellt, dass Nachrichten nicht verloren gehen, selbst wenn [[Broker]] ausfallen.<br/>",
     "target_x": 0,
     "target_y": 0,
     "parents": [
       "Apache Kafka"
     ],
     "children": [
+      "Apache Kafka",
       "Topic",
       "Topic Replication",
       "Broker"
     ]
   },
   {
-    "id": 51,
+    "id": 54,
     "name": "Topic Replication",
     "category": "Apache Kafka",
-    "priority": 6,
+    "priority": 7,
     "is_boss": "false",
-    "content": "- Um Ausfallsicherheit und Datenverfügbarkeit sicherzustellen, repliziert Kafka die [[Partition]] eines [[Topic]] auf mehrere [[Broker]]. Dies bedeutet, dass jede [[Partition]] in mehreren Kopien vorhanden ist, die als Replikate bezeichnet werden. Wenn ein [[Broker]] ausfällt, können andere [[Broker]] die Nachrichten weiterhin bereitstellen.<br/>",
+    "content": "[[Apache Kafka]]<br/>- Um Ausfallsicherheit und Datenverfügbarkeit sicherzustellen, repliziert Kafka die [[Partition]] eines [[Topic]] auf mehrere [[Broker]]. Dies bedeutet, dass jede [[Partition]] in mehreren Kopien vorhanden ist, die als Replikate bezeichnet werden. Wenn ein [[Broker]] ausfällt, können andere [[Broker]] die Nachrichten weiterhin bereitstellen.<br/>",
     "target_x": 0,
     "target_y": 0,
     "parents": [
       "Topic Durability"
     ],
     "children": [
+      "Apache Kafka",
       "Partition",
       "Topic",
       "Broker",
@@ -1000,12 +1087,12 @@
     ]
   },
   {
-    "id": 52,
+    "id": 55,
     "name": "Partition",
     "category": "Apache Kafka",
-    "priority": 5,
+    "priority": 7,
     "is_boss": "false",
-    "content": "- Jedes [[Topic]] kann in mehrere [[Partition]] aufgeteilt werden. [[Partition]] sind die tatsächlichen physischen Logdateien, in denen Nachrichten gespeichert werden. Sie ermöglichen eine parallele Verarbeitung und Skalierung, da jede [[Partition]] unabhängig verwaltet wird. [[Partition]] bieten auch eine Möglichkeit zur Lastverteilung und erhöhen die Performance durch parallele Verarbeitung.<br/>",
+    "content": "[[Apache Kafka]]<br/>- Jedes [[Topic]] kann in mehrere [[Partition]] aufgeteilt werden. [[Partition]] sind die tatsächlichen physischen Logdateien, in denen Nachrichten gespeichert werden. Sie ermöglichen eine parallele Verarbeitung und Skalierung, da jede [[Partition]] unabhängig verwaltet wird. [[Partition]] bieten auch eine Möglichkeit zur Lastverteilung und erhöhen die Performance durch parallele Verarbeitung.<br/>- Zu jedem Zeitpunkt gibt es immer nur EIN broker der der Leader für ein ePartition ist<br/>\t- [[Producer]] können nur data an den Leader schicken<br/>- Jede Partition hat nur EINEN Leader und mehrere ISR (in-sync replica)<br/>",
     "target_x": 0,
     "target_y": 0,
     "parents": [
@@ -1021,31 +1108,35 @@
       "Partition"
     ],
     "children": [
+      "Apache Kafka",
       "Topic",
       "Partition",
       "Partition",
       "Partition",
-      "Partition"
+      "Partition",
+      "Producer"
     ]
   },
   {
-    "id": 53,
+    "id": 56,
     "name": "Kafka-Cluster",
     "category": "Apache Kafka",
-    "priority": 1,
+    "priority": 2,
     "is_boss": "false",
-    "content": "- Ein **Kafka-Cluster** ist eine Sammlung von Kafka-[[Broker]], die gemeinsam als ein System arbeiten, um Nachrichten effizient zu speichern, zu verteilen und zu verarbeiten. <br/>",
+    "content": "[[Apache Kafka]]<br/>- Ein **Kafka-Cluster** ist eine Sammlung von Kafka-[[Broker]] (Servern), die gemeinsam als ein System arbeiten, um Nachrichten effizient zu speichern, zu verteilen und zu verarbeiten. <br/>",
     "target_x": 0,
     "target_y": 0,
     "parents": [
-      "Apache Kafka"
+      "Apache Kafka",
+      "Broker"
     ],
     "children": [
+      "Apache Kafka",
       "Broker"
     ]
   },
   {
-    "id": 54,
+    "id": 57,
     "name": "ssh AWS EC2 problems",
     "category": "Shell",
     "priority": 1,
@@ -1061,7 +1152,7 @@
     ]
   },
   {
-    "id": 55,
+    "id": 58,
     "name": "C++ Gnu Compiler",
     "category": "Shell",
     "priority": 2,
@@ -1079,7 +1170,27 @@
     ]
   },
   {
-    "id": 56,
+    "id": 59,
+    "name": "NestJS",
+    "category": "TypeScript",
+    "priority": 3,
+    "is_boss": "false",
+    "content": "[[TypeScript/TypeScript]]<br/>![[Class-Validator]]<br/><br/>![[Promise]]<br/><br/><br/>",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "Class-Validator",
+      "Promise",
+      "TypeScript"
+    ],
+    "children": [
+      "TypeScript/TypeScript",
+      "Class-Validator",
+      "Promise"
+    ]
+  },
+  {
+    "id": 60,
     "name": "Java Shell Commands",
     "category": "Shell",
     "priority": 3,
@@ -1098,7 +1209,7 @@
     ]
   },
   {
-    "id": 57,
+    "id": 61,
     "name": "reporting.sh",
     "category": "Shell",
     "priority": 1,
@@ -1114,12 +1225,12 @@
     ]
   },
   {
-    "id": 58,
+    "id": 62,
     "name": "GIT Shell Commands",
     "category": "Shell",
     "priority": 6,
     "is_boss": "false",
-    "content": "[[GIT/GIT]]<br/>```Shell<br/>git init #Initializes empty Git repository<br/><br/>git status #Look which changes are in the Staging Area<br/><br/>git add filename #Adds filename to Staging Area<br/>git add . #Adds Everything to staging Area<br/>git rm --cached -r . #removes all files from staging Area<br/><br/>git commit -m \"Initial commit\" # Do a commit, which puts all changes from Staging Area to repository<br/>git reset --soft HEAD-1 #removes last commit<br/>git commit --amend --no-edit #edits last commit without creating a new commit<br/>git push --force luis<br/><br/>git branch #which branch?<br/>git log #Which Commits were made ?<br/>git diff filename # show current differences from filename to repository<br/>git checkout #rollback to last version in our repository<br/>```<br/>![[GitHub and Remote Repositories]]<br/>![[Gitignore]]<br/>![[Git Cloning]]<br/>![[Git Branching and Merging]]![[Git Forking and Pull Requests]]<br/>",
+    "content": "[[GIT/GIT]]<br/>```Shell<br/>git init #Initializes empty Git repository<br/><br/>git status #Look which changes are in the Staging Area<br/><br/>git add filename #Adds filename to Staging Area<br/>git add . #Adds Everything to staging Area<br/>git rm --cached -r . #removes all files from staging Area<br/><br/>git commit -m \"Initial commit\" # Do a commit, which puts all changes from Staging Area to repository<br/>git reset --soft HEAD-1 #removes last commit<br/>git commit --amend --no-edit #edits last commit without creating a new commit<br/>git push --force luis<br/>git push LUMCMIL localbranch:remotebranch #pushes localbranch on remote branch<br/><br/>git branch #which branch?<br/>git log #Which Commits were made ?<br/>git diff filename # show current differences from filename to repository<br/>git checkout #rollback to last version in our repository<br/>```<br/>![[GitHub and Remote Repositories]]<br/>![[Gitignore]]<br/>![[Git Cloning]]<br/>![[Git Branching and Merging]]![[Git Forking and Pull Requests]]<br/>",
     "target_x": 0,
     "target_y": 0,
     "parents": [
@@ -1136,7 +1247,7 @@
     ]
   },
   {
-    "id": 59,
+    "id": 63,
     "name": "TypeScript Shell Commands",
     "category": "Shell",
     "priority": 2,
@@ -1153,7 +1264,7 @@
     ]
   },
   {
-    "id": 60,
+    "id": 64,
     "name": "Shell Python Commands",
     "category": "Shell",
     "priority": 2,
@@ -1168,7 +1279,7 @@
     ]
   },
   {
-    "id": 61,
+    "id": 65,
     "name": "Important Shell commands",
     "category": "Shell",
     "priority": 2,
@@ -1186,7 +1297,7 @@
     ]
   },
   {
-    "id": 62,
+    "id": 66,
     "name": "VBA Important Shell",
     "category": "Shell",
     "priority": 2,
@@ -1203,7 +1314,7 @@
     ]
   },
   {
-    "id": 63,
+    "id": 67,
     "name": "Umgebungsvariablen setzen",
     "category": "Shell",
     "priority": 1,
@@ -1219,7 +1330,7 @@
     ]
   },
   {
-    "id": 64,
+    "id": 68,
     "name": "Shell",
     "category": "Shell",
     "priority": 10,
@@ -1254,7 +1365,7 @@
     ]
   },
   {
-    "id": 65,
+    "id": 69,
     "name": "Linux Commands",
     "category": "Linux Raspberry PI",
     "priority": 3,
@@ -1271,79 +1382,6 @@
       "Important Shell commands",
       "Linux Postgres Config",
       "nginx server starten"
-    ]
-  },
-  {
-    "id": 66,
-    "name": "Linux Postgres Config",
-    "category": "Linux Raspberry PI",
-    "priority": 2,
-    "is_boss": "false",
-    "content": "[[Linux Commands]]<br/>[[SQL/SQL]]<br/>```Shell<br/><br/>sudo nano /etc/postgresql/<version>/main/postgresql.conf // listen_addresses = '*'<br/>sudo nano /etc/postgresql/<version>/main/pg_hba.conf //host all all ip-adresse/24 md5<br/><br/>```<br/>",
-    "target_x": 0,
-    "target_y": 0,
-    "parents": [
-      "Linux Commands",
-      "SQL"
-    ],
-    "children": [
-      "Linux Commands",
-      "SQL/SQL"
-    ]
-  },
-  {
-    "id": 67,
-    "name": "nginx server starten",
-    "category": "Linux Raspberry PI",
-    "priority": 1,
-    "is_boss": "false",
-    "content": "[[Linux Commands]]<br/>```Shell<br/>sudo yum install nginx -y<br/>sudo systemctl start nginx<br/>sudo vi /etc/nginx/nginx.conf //Konfugurieren<br/>```<br/>",
-    "target_x": 0,
-    "target_y": 0,
-    "parents": [
-      "Linux Commands"
-    ],
-    "children": [
-      "Linux Commands"
-    ]
-  },
-  {
-    "id": 68,
-    "name": "NestJS",
-    "category": "TypeScript",
-    "priority": 3,
-    "is_boss": "false",
-    "content": "[[TypeScript/TypeScript]]<br/>![[Class-Validator]]<br/><br/>![[Promise]]<br/><br/><br/>",
-    "target_x": 0,
-    "target_y": 0,
-    "parents": [
-      "Class-Validator",
-      "Promise",
-      "TypeScript"
-    ],
-    "children": [
-      "TypeScript/TypeScript",
-      "Class-Validator",
-      "Promise"
-    ]
-  },
-  {
-    "id": 69,
-    "name": "TypeScript",
-    "category": "TypeScript",
-    "priority": 4,
-    "is_boss": "true",
-    "content": "[[JavaScript]]<br/>[Boss]<br/>[[TypeScript Basics]]<br/>![[ReadOnlySet<Class>]]<br/><br/>![[NestJS]]<br/>",
-    "target_x": 0,
-    "target_y": 0,
-    "parents": [
-      "TypeScript Shell Commands"
-    ],
-    "children": [
-      "JavaScript",
-      "TypeScript Basics",
-      "ReadOnlySet<Class>",
-      "NestJS"
     ]
   },
   {
@@ -1975,6 +2013,20 @@
   },
   {
     "id": 105,
+    "name": "add()",
+    "category": "Java",
+    "priority": 0,
+    "is_boss": "false",
+    "content": "<br/>```Java<br/>import java.util.*;<br/>public class TestArrayList{<br/>\tpublic void main(String[] args) {<br/>\t\tArrayList list = new ArrayList();<br/>\t\tlist.add(\"Hello\");<br/>\t\tlist.add(\"world\");<br/>\t\tSystem.out.println(list);<br/>\t}<br/>}<br/>```<br/>",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "ArrayList"
+    ],
+    "children": []
+  },
+  {
+    "id": 106,
     "name": "Java Array",
     "category": "Java",
     "priority": 5,
@@ -1999,7 +2051,7 @@
     ]
   },
   {
-    "id": 106,
+    "id": 107,
     "name": "Object Type Casting",
     "category": "Java",
     "priority": 2,
@@ -2017,7 +2069,7 @@
     ]
   },
   {
-    "id": 107,
+    "id": 108,
     "name": "super constructor",
     "category": "Java",
     "priority": 0,
@@ -2031,40 +2083,7 @@
     "children": []
   },
   {
-    "id": 108,
-    "name": "HTML Heading Elements",
-    "category": "HTML",
-    "priority": 1,
-    "is_boss": "false",
-    "content": "- [[HTML Hypertext Markup Language]]<br/>```HTML<br/><h1>Heading1</h1><br/><h2>Heading1</h2><br/><h3>Heading1</h3><br/><h4>Heading1</h4><br/><h5>Heading1</h5><br/><h6>Heading1</h6><br/>```<br/>",
-    "target_x": 0,
-    "target_y": 0,
-    "parents": [
-      "HTML Hypertext Markup Language"
-    ],
-    "children": [
-      "HTML Hypertext Markup Language"
-    ]
-  },
-  {
     "id": 109,
-    "name": "Self Closing Tags",
-    "category": "HTML",
-    "priority": 2,
-    "is_boss": "false",
-    "content": "- [[HTML Hypertext Markup Language]]<br/>```HTML<br/><hr />  #Horizontal Rule<br/><br />  #Break (Neue Zeile)<br/>```<br/><br/>![[Image Elements]]<br/>",
-    "target_x": 0,
-    "target_y": 0,
-    "parents": [
-      "HTML Hypertext Markup Language"
-    ],
-    "children": [
-      "HTML Hypertext Markup Language",
-      "Image Elements"
-    ]
-  },
-  {
-    "id": 110,
     "name": "Maps",
     "category": "Java",
     "priority": 2,
@@ -2082,7 +2101,7 @@
     ]
   },
   {
-    "id": 111,
+    "id": 110,
     "name": "Covariant Returns",
     "category": "Java",
     "priority": 1,
@@ -2098,7 +2117,7 @@
     ]
   },
   {
-    "id": 112,
+    "id": 111,
     "name": "Java Loops",
     "category": "Java",
     "priority": 1,
@@ -2114,7 +2133,7 @@
     ]
   },
   {
-    "id": 113,
+    "id": 112,
     "name": "Enumeration",
     "category": "Java",
     "priority": 1,
@@ -2130,7 +2149,7 @@
     ]
   },
   {
-    "id": 114,
+    "id": 113,
     "name": "Reading Files",
     "category": "Java",
     "priority": 1,
@@ -2146,7 +2165,7 @@
     ]
   },
   {
-    "id": 115,
+    "id": 114,
     "name": "1st Place TU Darmstadt",
     "category": "Java",
     "priority": 2,
@@ -2161,7 +2180,7 @@
     ]
   },
   {
-    "id": 116,
+    "id": 115,
     "name": "Employee",
     "category": "Java",
     "priority": 2,
@@ -2175,6 +2194,22 @@
     "children": [
       "Inheritance",
       "Person"
+    ]
+  },
+  {
+    "id": 116,
+    "name": "Writing Files",
+    "category": "Java",
+    "priority": 1,
+    "is_boss": "false",
+    "content": "[[Java.io]]<br/>```Java<br/>try {<br/>\t// Erstellen eines BufferedWriter-Objekts für effizienteres Schreiben<br/>\tBufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(location));<br/>\t// Schreiben des Inhalts in die Datei<br/>\tbufferedWriter.write(content);<br/>\t// Schließen des BufferedWriter-Objekts<br/>\tbufferedWriter.close();<br/>} catch (IOException e) {<br/>\tSystem.out.println(\"Ein Fehler ist aufgetreten.\"); e.printStackTrace();<br/>}<br/>```<br/>",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "Java.io"
+    ],
+    "children": [
+      "Java.io"
     ]
   },
   {
@@ -2226,22 +2261,6 @@
   },
   {
     "id": 120,
-    "name": "Passing by Value",
-    "category": "Java",
-    "priority": 1,
-    "is_boss": "false",
-    "content": "[[Java]]<br/>- All variables are passed by value in Java<br/>\t- A primitive passed by value means a **copy of the primitive is made**<br/>\t\t- When discountLoad() is called:<br/>\t\t![[Pasted image 20240609131605.png]]<br/>\t\t![[Pasted image 20240609132244.png]]<br/>\t- An Object passed by value means a **Copy of the reference is made<br/>\t\t- When debitFee() is called:<br/>\t\t![[Pasted image 20240609132500.png]]<br/>\t\t![[Pasted image 20240609132849.png]]<br/>\t- a **String Reference** is passed over<br/>\t\t- When salutation(String aName) is called<br/>\t\t![[Pasted image 20240609133445.png]]<br/>\t\t![[Pasted image 20240609133622.png]]<br/><br/><br/><br/><br/><br/><br/><br/>![[Pasted image 20240609131110.png]]<br/>",
-    "target_x": 0,
-    "target_y": 0,
-    "parents": [
-      "Java"
-    ],
-    "children": [
-      "Java"
-    ]
-  },
-  {
-    "id": 121,
     "name": "Overriding Methods",
     "category": "Java",
     "priority": 2,
@@ -2259,7 +2278,7 @@
     ]
   },
   {
-    "id": 122,
+    "id": 121,
     "name": "Comparator",
     "category": "Java",
     "priority": 0,
@@ -2273,7 +2292,7 @@
     "children": []
   },
   {
-    "id": 123,
+    "id": 122,
     "name": "Chaining Constructors",
     "category": "Java",
     "priority": 1,
@@ -2289,7 +2308,7 @@
     ]
   },
   {
-    "id": 124,
+    "id": 123,
     "name": "Polymorphism",
     "category": "Java",
     "priority": 4,
@@ -2311,7 +2330,7 @@
     ]
   },
   {
-    "id": 125,
+    "id": 124,
     "name": "Collections stores Objects",
     "category": "Java",
     "priority": 1,
@@ -2327,7 +2346,7 @@
     ]
   },
   {
-    "id": 126,
+    "id": 125,
     "name": "Java.io",
     "category": "Java",
     "priority": 2,
@@ -2346,7 +2365,7 @@
     ]
   },
   {
-    "id": 127,
+    "id": 126,
     "name": "Sets",
     "category": "Java",
     "priority": 4,
@@ -2364,6 +2383,22 @@
       "equals()",
       "HashSet",
       "TreeSet"
+    ]
+  },
+  {
+    "id": 127,
+    "name": "Immutable Strings",
+    "category": "Java",
+    "priority": 1,
+    "is_boss": "false",
+    "content": "[[Java]]<br/>**Strings objects are immutable**<br/>\t- Once created and initialized, a String cannot be changed on the same reference<br/>```Java<br/>String a = \"It is \";<br/>String b = \"a dog \";<br/>String c = \"day afternoon.\";<br/>```<br/>![[Pasted image 20240609125934.png]]<br/>```Java<br/>a = a + b + c;<br/>c = \"Wow\";<br/>```<br/>![[Pasted image 20240609130133.png]]<br/>",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "String"
+    ],
+    "children": [
+      "Java"
     ]
   },
   {
@@ -2443,23 +2478,6 @@
   },
   {
     "id": 130,
-    "name": "Array Polymorphism",
-    "category": "Java",
-    "priority": 2,
-    "is_boss": "false",
-    "content": "[[Java Array]]<br/>[[Polymorphism]]<br/>```Java<br/>Employee[] staff = new Employee[3];<br/>staff[0] = new Employee();<br/>staff[0].name = \"James\";<br/>staff[1] = new Secretary();<br/>staff[1].name = \"Moneypenny\";<br/>staff[2] = new Manager();<br/>staff[2].name = \"Miles\";<br/>((Manager) staff[2]).department = \"MI6\";<br/>```<br/>",
-    "target_x": 0,
-    "target_y": 0,
-    "parents": [
-      "Java Array"
-    ],
-    "children": [
-      "Java Array",
-      "Polymorphism"
-    ]
-  },
-  {
-    "id": 131,
     "name": "Lambda syntax",
     "category": "Java",
     "priority": 1,
@@ -2475,7 +2493,7 @@
     ]
   },
   {
-    "id": 132,
+    "id": 131,
     "name": "Protect Casts at Runtime",
     "category": "Java",
     "priority": 1,
@@ -2491,7 +2509,7 @@
     ]
   },
   {
-    "id": 133,
+    "id": 132,
     "name": "Static Imports",
     "category": "Java",
     "priority": 1,
@@ -2507,7 +2525,7 @@
     ]
   },
   {
-    "id": 134,
+    "id": 133,
     "name": "LocalDate",
     "category": "Java",
     "priority": 1,
@@ -2523,7 +2541,7 @@
     ]
   },
   {
-    "id": 135,
+    "id": 134,
     "name": "HashSet",
     "category": "Java",
     "priority": 1,
@@ -2540,7 +2558,7 @@
     ]
   },
   {
-    "id": 136,
+    "id": 135,
     "name": "Static methods",
     "category": "Java",
     "priority": 3,
@@ -2559,7 +2577,7 @@
     ]
   },
   {
-    "id": 137,
+    "id": 136,
     "name": "Iterator",
     "category": "Java",
     "priority": 1,
@@ -2575,7 +2593,7 @@
     ]
   },
   {
-    "id": 138,
+    "id": 137,
     "name": "Protected",
     "category": "Java",
     "priority": 2,
@@ -2593,7 +2611,7 @@
     ]
   },
   {
-    "id": 139,
+    "id": 138,
     "name": "Employee Setters & getters",
     "category": "Java",
     "priority": 1,
@@ -2609,39 +2627,7 @@
     ]
   },
   {
-    "id": 140,
-    "name": "HTML Paragraph Elements",
-    "category": "HTML",
-    "priority": 1,
-    "is_boss": "false",
-    "content": "- [[HTML Hypertext Markup Language]]<br/>```HTML<br/><p> nvspodjnv osdnv sodjnv osxjnv cvnsodk </p><br/>```<br/>",
-    "target_x": 0,
-    "target_y": 0,
-    "parents": [
-      "HTML Hypertext Markup Language"
-    ],
-    "children": [
-      "HTML Hypertext Markup Language"
-    ]
-  },
-  {
-    "id": 141,
-    "name": "HTML Boilerplate",
-    "category": "HTML",
-    "priority": 1,
-    "is_boss": "false",
-    "content": "- [[HTML Hypertext Markup Language]]<br/>```HTML<br/><!DOCTYPE html><br/><html lang=\"en\"><br/>\t<head><br/>\t\t<meta charset=\"UTF-8\"><br/>\t\t<title>My Website </title><br/>\t</head><br/>\t<body><br/>\t\t<h1>Hello World!</h1><br/>\t</body><br/></html><br/>```<br/>",
-    "target_x": 0,
-    "target_y": 0,
-    "parents": [
-      "HTML Hypertext Markup Language"
-    ],
-    "children": [
-      "HTML Hypertext Markup Language"
-    ]
-  },
-  {
-    "id": 142,
+    "id": 139,
     "name": "Generics and Autoboxing",
     "category": "Java",
     "priority": 1,
@@ -2658,7 +2644,7 @@
     ]
   },
   {
-    "id": 143,
+    "id": 140,
     "name": "Throwable",
     "category": "Java",
     "priority": 4,
@@ -2680,7 +2666,7 @@
     ]
   },
   {
-    "id": 144,
+    "id": 141,
     "name": "The Object Class",
     "category": "Java",
     "priority": 2,
@@ -2699,7 +2685,7 @@
     ]
   },
   {
-    "id": 145,
+    "id": 142,
     "name": "Marker Interface",
     "category": "Java",
     "priority": 1,
@@ -2715,7 +2701,7 @@
     ]
   },
   {
-    "id": 146,
+    "id": 143,
     "name": "TreeSet",
     "category": "Java",
     "priority": 1,
@@ -2732,7 +2718,7 @@
     ]
   },
   {
-    "id": 147,
+    "id": 144,
     "name": "contains()",
     "category": "Java",
     "priority": 0,
@@ -2746,7 +2732,7 @@
     "children": []
   },
   {
-    "id": 148,
+    "id": 145,
     "name": "Anonymous Class",
     "category": "Java",
     "priority": 0,
@@ -2760,7 +2746,7 @@
     "children": []
   },
   {
-    "id": 149,
+    "id": 146,
     "name": "Java Wrapper",
     "category": "Java",
     "priority": 1,
@@ -2776,7 +2762,7 @@
     ]
   },
   {
-    "id": 150,
+    "id": 147,
     "name": "The Java Platform Cont.",
     "category": "Java",
     "priority": 0,
@@ -2790,7 +2776,7 @@
     "children": []
   },
   {
-    "id": 151,
+    "id": 148,
     "name": "equals() vs ==",
     "category": "Java",
     "priority": 1,
@@ -2806,40 +2792,7 @@
     ]
   },
   {
-    "id": 152,
-    "name": "Nesting and Indentation",
-    "category": "HTML",
-    "priority": 1,
-    "is_boss": "false",
-    "content": "- [[HTML Hypertext Markup Language]]<br/>```HTML<br/><ul> #Nesting.      Indentation = using tabs to make code besser viewable<br/>\t<li> Milk </li><br/>\t<li> Eggs</li><br/>\t<li> Flour<br/>\t\t<ul> <br/>\t\t\t<li> Milk </li><br/>\t\t\t<li> Eggs</li><br/>\t\t\t<li> Flour</li><br/>\t\t</ul><br/>\t</li><br/>\t<li> Start Work</li><br/></ul><br/><br/><ol> #Ordered List<br/>\t<li> Milk </li><br/>\t<li> Eggs</li><br/>\t<li> Flour</li><br/></ol><br/>```<br/>",
-    "target_x": 0,
-    "target_y": 0,
-    "parents": [
-      "HTML Hypertext Markup Language"
-    ],
-    "children": [
-      "HTML Hypertext Markup Language"
-    ]
-  },
-  {
-    "id": 153,
-    "name": "HTML Attributes",
-    "category": "HTML",
-    "priority": 1,
-    "is_boss": "false",
-    "content": "- [[HTML Hypertext Markup Language]]<br/>```HTML<br/><tag attribute=value anotherattribute=value> Content </tag><br/>```<br/>",
-    "target_x": 0,
-    "target_y": 0,
-    "parents": [
-      "Anchor Elements",
-      "HTML Hypertext Markup Language"
-    ],
-    "children": [
-      "HTML Hypertext Markup Language"
-    ]
-  },
-  {
-    "id": 154,
+    "id": 149,
     "name": "Abstract Classes",
     "category": "Java",
     "priority": 0,
@@ -2854,7 +2807,7 @@
     "children": []
   },
   {
-    "id": 155,
+    "id": 150,
     "name": "HashMaps",
     "category": "Java",
     "priority": 1,
@@ -2870,7 +2823,7 @@
     ]
   },
   {
-    "id": 156,
+    "id": 151,
     "name": "LocalTime",
     "category": "Java",
     "priority": 1,
@@ -2886,7 +2839,7 @@
     ]
   },
   {
-    "id": 157,
+    "id": 152,
     "name": "Benefits of Polymorphism",
     "category": "Java",
     "priority": 1,
@@ -2902,7 +2855,7 @@
     ]
   },
   {
-    "id": 158,
+    "id": 153,
     "name": "remove()",
     "category": "Java",
     "priority": 0,
@@ -2916,7 +2869,7 @@
     "children": []
   },
   {
-    "id": 159,
+    "id": 154,
     "name": "Multi-Dimensional Arrays",
     "category": "Java",
     "priority": 1,
@@ -2932,7 +2885,7 @@
     ]
   },
   {
-    "id": 160,
+    "id": 155,
     "name": "Comparable",
     "category": "Java",
     "priority": 1,
@@ -2949,70 +2902,23 @@
     ]
   },
   {
-    "id": 161,
-    "name": "add()",
-    "category": "Java",
-    "priority": 0,
-    "is_boss": "false",
-    "content": "<br/>```Java<br/>import java.util.*;<br/>public class TestArrayList{<br/>\tpublic void main(String[] args) {<br/>\t\tArrayList list = new ArrayList();<br/>\t\tlist.add(\"Hello\");<br/>\t\tlist.add(\"world\");<br/>\t\tSystem.out.println(list);<br/>\t}<br/>}<br/>```<br/>",
-    "target_x": 0,
-    "target_y": 0,
-    "parents": [
-      "ArrayList"
-    ],
-    "children": []
-  },
-  {
-    "id": 162,
-    "name": "Writing Files",
+    "id": 156,
+    "name": "Passing by Value",
     "category": "Java",
     "priority": 1,
     "is_boss": "false",
-    "content": "[[Java.io]]<br/>```Java<br/>try {<br/>\t// Erstellen eines BufferedWriter-Objekts für effizienteres Schreiben<br/>\tBufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(location));<br/>\t// Schreiben des Inhalts in die Datei<br/>\tbufferedWriter.write(content);<br/>\t// Schließen des BufferedWriter-Objekts<br/>\tbufferedWriter.close();<br/>} catch (IOException e) {<br/>\tSystem.out.println(\"Ein Fehler ist aufgetreten.\"); e.printStackTrace();<br/>}<br/>```<br/>",
+    "content": "[[Java]]<br/>- All variables are passed by value in Java<br/>\t- A primitive passed by value means a **copy of the primitive is made**<br/>\t\t- When discountLoad() is called:<br/>\t\t![[Pasted image 20240609131605.png]]<br/>\t\t![[Pasted image 20240609132244.png]]<br/>\t- An Object passed by value means a **Copy of the reference is made<br/>\t\t- When debitFee() is called:<br/>\t\t![[Pasted image 20240609132500.png]]<br/>\t\t![[Pasted image 20240609132849.png]]<br/>\t- a **String Reference** is passed over<br/>\t\t- When salutation(String aName) is called<br/>\t\t![[Pasted image 20240609133445.png]]<br/>\t\t![[Pasted image 20240609133622.png]]<br/><br/><br/><br/><br/><br/><br/><br/>![[Pasted image 20240609131110.png]]<br/>",
     "target_x": 0,
     "target_y": 0,
     "parents": [
-      "Java.io"
-    ],
-    "children": [
-      "Java.io"
-    ]
-  },
-  {
-    "id": 163,
-    "name": "Immutable Strings",
-    "category": "Java",
-    "priority": 1,
-    "is_boss": "false",
-    "content": "[[Java]]<br/>**Strings objects are immutable**<br/>\t- Once created and initialized, a String cannot be changed on the same reference<br/>```Java<br/>String a = \"It is \";<br/>String b = \"a dog \";<br/>String c = \"day afternoon.\";<br/>```<br/>![[Pasted image 20240609125934.png]]<br/>```Java<br/>a = a + b + c;<br/>c = \"Wow\";<br/>```<br/>![[Pasted image 20240609130133.png]]<br/>",
-    "target_x": 0,
-    "target_y": 0,
-    "parents": [
-      "String"
+      "Java"
     ],
     "children": [
       "Java"
     ]
   },
   {
-    "id": 164,
-    "name": "Image Elements",
-    "category": "HTML",
-    "priority": 1,
-    "is_boss": "false",
-    "content": "- [[HTML Hypertext Markup Language]]<br/>```HTML<br/><img src=\"url\"/> <br/><img src=\"https://picsum.photos/200\" alt=\"forest at sunset\"/> <br/><br/><img src=\"./\" /> #Current folder<br/><img src=\"../\" /> #Folder closer to the root<br/>```<br/><br/>",
-    "target_x": 0,
-    "target_y": 0,
-    "parents": [
-      "Self Closing Tags",
-      "HTML Hypertext Markup Language"
-    ],
-    "children": [
-      "HTML Hypertext Markup Language"
-    ]
-  },
-  {
-    "id": 165,
+    "id": 157,
     "name": "Lambda Expressions",
     "category": "Java",
     "priority": 3,
@@ -3031,7 +2937,7 @@
     ]
   },
   {
-    "id": 166,
+    "id": 158,
     "name": "LocalDateTime",
     "category": "Java",
     "priority": 1,
@@ -3047,7 +2953,7 @@
     ]
   },
   {
-    "id": 167,
+    "id": 159,
     "name": "Predicate",
     "category": "Java",
     "priority": 3,
@@ -3065,7 +2971,7 @@
     ]
   },
   {
-    "id": 168,
+    "id": 160,
     "name": "Collection Sorting & Searching",
     "category": "Java",
     "priority": 3,
@@ -3083,7 +2989,7 @@
     ]
   },
   {
-    "id": 169,
+    "id": 161,
     "name": "Java DataBase Connection (JDBC)",
     "category": "Java",
     "priority": 1,
@@ -3099,7 +3005,7 @@
     ]
   },
   {
-    "id": 170,
+    "id": 162,
     "name": "try-with resources",
     "category": "Java",
     "priority": 1,
@@ -3115,7 +3021,7 @@
     ]
   },
   {
-    "id": 171,
+    "id": 163,
     "name": "Overloading Methods",
     "category": "Java",
     "priority": 1,
@@ -3131,7 +3037,7 @@
     ]
   },
   {
-    "id": 172,
+    "id": 164,
     "name": "Java Development Kit (JDK)",
     "category": "Java",
     "priority": 1,
@@ -3147,7 +3053,7 @@
     ]
   },
   {
-    "id": 173,
+    "id": 165,
     "name": "Maven",
     "category": "Java",
     "priority": 1,
@@ -3161,7 +3067,7 @@
     ]
   },
   {
-    "id": 174,
+    "id": 166,
     "name": "Hello World",
     "category": "Java",
     "priority": 1,
@@ -3177,7 +3083,7 @@
     ]
   },
   {
-    "id": 175,
+    "id": 167,
     "name": "ArrayList",
     "category": "Java",
     "priority": 6,
@@ -3199,7 +3105,7 @@
     ]
   },
   {
-    "id": 176,
+    "id": 168,
     "name": "Interfaces",
     "category": "Java",
     "priority": 11,
@@ -3230,7 +3136,7 @@
     ]
   },
   {
-    "id": 177,
+    "id": 169,
     "name": "equals()",
     "category": "Java",
     "priority": 1,
@@ -3247,7 +3153,7 @@
     ]
   },
   {
-    "id": 178,
+    "id": 170,
     "name": "Conditionals if else",
     "category": "Java",
     "priority": 1,
@@ -3263,7 +3169,7 @@
     ]
   },
   {
-    "id": 179,
+    "id": 171,
     "name": "Implementing Interfaces",
     "category": "Java",
     "priority": 1,
@@ -3279,7 +3185,7 @@
     ]
   },
   {
-    "id": 180,
+    "id": 172,
     "name": "Java.nio",
     "category": "Java",
     "priority": 1,
@@ -3296,7 +3202,7 @@
     ]
   },
   {
-    "id": 181,
+    "id": 173,
     "name": "Default",
     "category": "Java",
     "priority": 1,
@@ -3312,7 +3218,7 @@
     ]
   },
   {
-    "id": 182,
+    "id": 174,
     "name": "Queues",
     "category": "Java",
     "priority": 3,
@@ -3331,7 +3237,59 @@
     ]
   },
   {
-    "id": 183,
+    "id": 175,
+    "name": "Cost Explorer",
+    "category": "AWS",
+    "priority": 2,
+    "is_boss": "false",
+    "content": "- [[Billing and Costing Tools - Summary]]<br/>- Visualize, understand and manage your AWS costs and usage over time<br/>- Create custom reports that analyze cost and usage data.<br/>- Analyze your data at a high level: total costs and usage across all accounts<br/>- Or Monthly, hourly, resource level granularity<br/>- Chooss an optimal [[Savings Plan]] (to lower prices on you bill)<br/>- **Forecast usage up to 12 months based on previous usage**<br/>![[Pasted image 20240525102720.png]]![[Pasted image 20240525102745.png]]<br/>",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "Billing and Costing Tools",
+      "AWS Right sizing",
+      "Billing and Costing Tools - Summary"
+    ],
+    "children": [
+      "Billing and Costing Tools - Summary",
+      "Savings Plan"
+    ]
+  },
+  {
+    "id": 176,
+    "name": "S3 Transfer Acceleration",
+    "category": "AWS",
+    "priority": 1,
+    "is_boss": "false",
+    "content": "- [[Amazon S3]]<br/>- Increase transfer speed by transferring file to an AWS edge location which will forward the data to the S3 bucket in the target region<br/>![[Pasted image 20240523152257.png]]<br/>",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "Summary",
+      "S3 - Storage Pricing"
+    ],
+    "children": [
+      "Amazon S3"
+    ]
+  },
+  {
+    "id": 177,
+    "name": "Amazon EMR - Elastic MapReduce",
+    "category": "AWS",
+    "priority": 1,
+    "is_boss": "false",
+    "content": "- [[Databases & Analytics Summary]]<br/>- EMR helps creating Hadoop clusters (Big Data) to analyze and process vast amount of data<br/>- The clusters can be made of hundreds of EC2 instances<br/>- Also supports Apache Spark, HBase, Presto, Flink<br/>- Auto-scaling and integrated Spot instances<br/>- Use cases: data processing, machine learning, web indexing<br/>",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "Databases & Analytics Summary"
+    ],
+    "children": [
+      "Databases & Analytics Summary"
+    ]
+  },
+  {
+    "id": 178,
     "name": "Final",
     "category": "Java",
     "priority": 2,
@@ -3349,7 +3307,7 @@
     ]
   },
   {
-    "id": 184,
+    "id": 179,
     "name": "Lernplan",
     "category": "Java",
     "priority": 1,
@@ -3365,8 +3323,73 @@
     ]
   },
   {
-    "id": 185,
-    "name": "HTML Hypertext Markup Language",
+    "id": 180,
+    "name": "Array Polymorphism",
+    "category": "Java",
+    "priority": 2,
+    "is_boss": "false",
+    "content": "[[Java Array]]<br/>[[Polymorphism]]<br/>```Java<br/>Employee[] staff = new Employee[3];<br/>staff[0] = new Employee();<br/>staff[0].name = \"James\";<br/>staff[1] = new Secretary();<br/>staff[1].name = \"Moneypenny\";<br/>staff[2] = new Manager();<br/>staff[2].name = \"Miles\";<br/>((Manager) staff[2]).department = \"MI6\";<br/>```<br/>",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "Java Array"
+    ],
+    "children": [
+      "Java Array",
+      "Polymorphism"
+    ]
+  },
+  {
+    "id": 181,
+    "name": "HTML Paragraph Elements",
+    "category": "HTML",
+    "priority": 1,
+    "is_boss": "false",
+    "content": "- [[HTML]]<br/>```HTML<br/><p> nvspodjnv osdnv sodjnv osxjnv cvnsodk </p><br/>```<br/>",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "HTML"
+    ],
+    "children": [
+      "HTML"
+    ]
+  },
+  {
+    "id": 182,
+    "name": "HTML Boilerplate",
+    "category": "HTML",
+    "priority": 1,
+    "is_boss": "false",
+    "content": "- [[HTML]]<br/>```HTML<br/><!DOCTYPE html><br/><html lang=\"en\"><br/>\t<head><br/>\t\t<meta charset=\"UTF-8\"><br/>\t\t<title>My Website </title><br/>\t</head><br/>\t<body><br/>\t\t<h1>Hello World!</h1><br/>\t</body><br/></html><br/>```<br/>",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "HTML"
+    ],
+    "children": [
+      "HTML"
+    ]
+  },
+  {
+    "id": 183,
+    "name": "Nesting and Indentation",
+    "category": "HTML",
+    "priority": 1,
+    "is_boss": "false",
+    "content": "- [[HTML]]<br/>```HTML<br/><ul> #Nesting.      Indentation = using tabs to make code besser viewable<br/>\t<li> Milk </li><br/>\t<li> Eggs</li><br/>\t<li> Flour<br/>\t\t<ul> <br/>\t\t\t<li> Milk </li><br/>\t\t\t<li> Eggs</li><br/>\t\t\t<li> Flour</li><br/>\t\t</ul><br/>\t</li><br/>\t<li> Start Work</li><br/></ul><br/><br/><ol> #Ordered List<br/>\t<li> Milk </li><br/>\t<li> Eggs</li><br/>\t<li> Flour</li><br/></ol><br/>```<br/>",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "HTML"
+    ],
+    "children": [
+      "HTML"
+    ]
+  },
+  {
+    "id": 184,
+    "name": "HTML",
     "category": "HTML",
     "priority": 10,
     "is_boss": "true",
@@ -3400,23 +3423,107 @@
     ]
   },
   {
-    "id": 186,
-    "name": "The List Element",
+    "id": 185,
+    "name": "Image Elements",
     "category": "HTML",
     "priority": 1,
     "is_boss": "false",
-    "content": "- [[HTML Hypertext Markup Language]]<br/>```HTML<br/><ul> #Unordered List<br/>\t<li> Milk </li><br/>\t<li> Eggs</li><br/>\t<li> Flour</li><br/></ul><br/><br/><ol> #Ordered List<br/>\t<li> Milk </li><br/>\t<li> Eggs</li><br/>\t<li> Flour</li><br/></ol><br/>```<br/>",
+    "content": "- [[HTML]]<br/>```HTML<br/><img src=\"url\"/> <br/><img src=\"https://picsum.photos/200\" alt=\"forest at sunset\"/> <br/><br/><img src=\"./\" /> #Current folder<br/><img src=\"../\" /> #Folder closer to the root<br/>```<br/><br/>",
     "target_x": 0,
     "target_y": 0,
     "parents": [
-      "HTML Hypertext Markup Language"
+      "HTML",
+      "Self Closing Tags"
     ],
     "children": [
-      "HTML Hypertext Markup Language"
+      "HTML"
+    ]
+  },
+  {
+    "id": 186,
+    "name": "Anchor Elements",
+    "category": "HTML",
+    "priority": 2,
+    "is_boss": "false",
+    "content": "- [[HTML]]<br/>```HTML<br/><a href=\"http://www.google.com\"> This is a link </a><br/>```<br/><br/>![[HTML Attributes]]<br/>",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "HTML"
+    ],
+    "children": [
+      "HTML",
+      "HTML Attributes"
     ]
   },
   {
     "id": 187,
+    "name": "HTML Heading Elements",
+    "category": "HTML",
+    "priority": 1,
+    "is_boss": "false",
+    "content": "- [[HTML]]<br/>```HTML<br/><h1>Heading1</h1><br/><h2>Heading1</h2><br/><h3>Heading1</h3><br/><h4>Heading1</h4><br/><h5>Heading1</h5><br/><h6>Heading1</h6><br/>```<br/>",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "HTML"
+    ],
+    "children": [
+      "HTML"
+    ]
+  },
+  {
+    "id": 188,
+    "name": "Self Closing Tags",
+    "category": "HTML",
+    "priority": 2,
+    "is_boss": "false",
+    "content": "- [[HTML]]<br/>```HTML<br/><hr />  #Horizontal Rule<br/><br />  #Break (Neue Zeile)<br/>```<br/><br/>![[Image Elements]]<br/>",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "HTML"
+    ],
+    "children": [
+      "HTML",
+      "Image Elements"
+    ]
+  },
+  {
+    "id": 189,
+    "name": "HTML Attributes",
+    "category": "HTML",
+    "priority": 1,
+    "is_boss": "false",
+    "content": "- [[HTML]]<br/>```HTML<br/><tag attribute=value anotherattribute=value> Content </tag><br/>```<br/>",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "HTML",
+      "Anchor Elements"
+    ],
+    "children": [
+      "HTML"
+    ]
+  },
+  {
+    "id": 190,
+    "name": "The List Element",
+    "category": "HTML",
+    "priority": 1,
+    "is_boss": "false",
+    "content": "- [[HTML]]<br/>```HTML<br/><ul> #Unordered List<br/>\t<li> Milk </li><br/>\t<li> Eggs</li><br/>\t<li> Flour</li><br/></ul><br/><br/><ol> #Ordered List<br/>\t<li> Milk </li><br/>\t<li> Eggs</li><br/>\t<li> Flour</li><br/></ol><br/>```<br/>",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "HTML"
+    ],
+    "children": [
+      "HTML"
+    ]
+  },
+  {
+    "id": 191,
     "name": "MongoDB CRUD",
     "category": "MongoDB",
     "priority": 1,
@@ -3433,59 +3540,7 @@
     ]
   },
   {
-    "id": 188,
-    "name": "Cost Explorer",
-    "category": "AWS",
-    "priority": 2,
-    "is_boss": "false",
-    "content": "- [[Billing and Costing Tools - Summary]]<br/>- Visualize, understand and manage your AWS costs and usage over time<br/>- Create custom reports that analyze cost and usage data.<br/>- Analyze your data at a high level: total costs and usage across all accounts<br/>- Or Monthly, hourly, resource level granularity<br/>- Chooss an optimal [[Savings Plan]] (to lower prices on you bill)<br/>- **Forecast usage up to 12 months based on previous usage**<br/>![[Pasted image 20240525102720.png]]![[Pasted image 20240525102745.png]]<br/>",
-    "target_x": 0,
-    "target_y": 0,
-    "parents": [
-      "Billing and Costing Tools",
-      "AWS Right sizing",
-      "Billing and Costing Tools - Summary"
-    ],
-    "children": [
-      "Billing and Costing Tools - Summary",
-      "Savings Plan"
-    ]
-  },
-  {
-    "id": 189,
-    "name": "S3 Transfer Acceleration",
-    "category": "AWS",
-    "priority": 1,
-    "is_boss": "false",
-    "content": "- [[Amazon S3]]<br/>- Increase transfer speed by transferring file to an AWS edge location which will forward the data to the S3 bucket in the target region<br/>![[Pasted image 20240523152257.png]]<br/>",
-    "target_x": 0,
-    "target_y": 0,
-    "parents": [
-      "Summary",
-      "S3 - Storage Pricing"
-    ],
-    "children": [
-      "Amazon S3"
-    ]
-  },
-  {
-    "id": 190,
-    "name": "Amazon EMR - Elastic MapReduce",
-    "category": "AWS",
-    "priority": 1,
-    "is_boss": "false",
-    "content": "- [[Databases & Analytics Summary]]<br/>- EMR helps creating Hadoop clusters (Big Data) to analyze and process vast amount of data<br/>- The clusters can be made of hundreds of EC2 instances<br/>- Also supports Apache Spark, HBase, Presto, Flink<br/>- Auto-scaling and integrated Spot instances<br/>- Use cases: data processing, machine learning, web indexing<br/>",
-    "target_x": 0,
-    "target_y": 0,
-    "parents": [
-      "Databases & Analytics Summary"
-    ],
-    "children": [
-      "Databases & Analytics Summary"
-    ]
-  },
-  {
-    "id": 191,
+    "id": 192,
     "name": "AWS Cloud Development Kit (CDK)",
     "category": "AWS",
     "priority": 1,
@@ -3501,7 +3556,7 @@
     ]
   },
   {
-    "id": 192,
+    "id": 193,
     "name": "Amazon S3 - Versioning",
     "category": "AWS",
     "priority": 1,
@@ -3517,7 +3572,7 @@
     ]
   },
   {
-    "id": 193,
+    "id": 194,
     "name": "Billing and Costing Tools",
     "category": "AWS",
     "priority": 7,
@@ -3537,7 +3592,7 @@
     ]
   },
   {
-    "id": 194,
+    "id": 195,
     "name": "IAM Security Tools",
     "category": "AWS",
     "priority": 2,
@@ -3554,7 +3609,7 @@
     ]
   },
   {
-    "id": 195,
+    "id": 196,
     "name": "AWS CodeCommit",
     "category": "AWS",
     "priority": 1,
@@ -3572,7 +3627,7 @@
     ]
   },
   {
-    "id": 196,
+    "id": 197,
     "name": "Amazon Polly",
     "category": "AWS",
     "priority": 1,
@@ -3588,7 +3643,7 @@
     ]
   },
   {
-    "id": 197,
+    "id": 198,
     "name": "Amazon Translate",
     "category": "AWS",
     "priority": 1,
@@ -3604,7 +3659,7 @@
     ]
   },
   {
-    "id": 198,
+    "id": 199,
     "name": "Amazon Lex & Connect",
     "category": "AWS",
     "priority": 1,
@@ -3617,22 +3672,6 @@
     ],
     "children": [
       "ML"
-    ]
-  },
-  {
-    "id": 199,
-    "name": "NAT Gateway",
-    "category": "AWS",
-    "priority": 1,
-    "is_boss": "false",
-    "content": "- [[VPC Summary]]<br/>**NAT Gateways** (AWS-managed) & **NAT Instances** (self-managed) allow your instances in your Private Subnets to access the internet while remaining private<br/>![[Pasted image 20240524110028.png]]<br/>",
-    "target_x": 0,
-    "target_y": 0,
-    "parents": [
-      "VPC Summary"
-    ],
-    "children": [
-      "VPC Summary"
     ]
   },
   {
@@ -3832,37 +3871,6 @@
   },
   {
     "id": 211,
-    "name": "Active Directory (AD)",
-    "category": "AWS",
-    "priority": 0,
-    "is_boss": "false",
-    "content": "- Found on any Windows Server with AD Domain Services<br/><br/>- Database on **objects**: User Accounts, Computers, Printers, File Shares, Security Groups<br/><br/>- Centralized security management, create account, assign permissions<br/>",
-    "target_x": 0,
-    "target_y": 0,
-    "parents": [
-      "AWS Directory Services",
-      "AWS IAM Identity Center"
-    ],
-    "children": []
-  },
-  {
-    "id": 212,
-    "name": "Internet Gateway",
-    "category": "AWS",
-    "priority": 1,
-    "is_boss": "false",
-    "content": "- **Internet Gateways** helps our [[VPC Summary]] instances connect with the internet<br/>- Public Subnets have a route to the internet gateway.<br/><br/>- **NAT Gateways** (AWS-managed) & **NAT Instances** (self-managed) allow your instances in your Private Subnets to access the internet while remaining private<br/>![[Pasted image 20240524110028.png]]<br/>",
-    "target_x": 0,
-    "target_y": 0,
-    "parents": [
-      "VPC Summary"
-    ],
-    "children": [
-      "VPC Summary"
-    ]
-  },
-  {
-    "id": 213,
     "name": "Billing and Costing Tools - Summary",
     "category": "AWS",
     "priority": 10,
@@ -3895,7 +3903,7 @@
     ]
   },
   {
-    "id": 214,
+    "id": 212,
     "name": "EC2 Instances Purchasing Options",
     "category": "AWS",
     "priority": 1,
@@ -3911,7 +3919,7 @@
     ]
   },
   {
-    "id": 215,
+    "id": 213,
     "name": "IAM",
     "category": "AWS",
     "priority": 5,
@@ -3941,7 +3949,23 @@
     ]
   },
   {
-    "id": 216,
+    "id": 214,
+    "name": "AWS X-Ray",
+    "category": "AWS",
+    "priority": 1,
+    "is_boss": "false",
+    "content": "- [[Monitoring Summary]]<br/>- Debugging in Production, the good old way:<br/>\t- test locally<br/>\t- Add log statements everywhere<br/>\t- Re-deploy in production<br/>- Log formats differ across applications and log analysis is hard<br/>- Debugging: one big monolith \"easy\", **distributed services \"hard\"**<br/>- No common views of your entire architecture<br/><br/>- **Enter.. AWS X-Ray**<br/>![[Pasted image 20240524095401.png]]<br/>advantages:<br/>- Trouvleshooting performance (nottlenecks)<br/>- Understand dependencies in a microservice architecture<br/>- Pinpoint service issues<br/>- Review request behavior<br/>- Find errors and exceptions<br/>- Are we meeting time SLA (Service Level Agreement)<br/>- Where I am throttled<br/>- Identify usere that are impacted<br/>",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "Monitoring Summary"
+    ],
+    "children": [
+      "Monitoring Summary"
+    ]
+  },
+  {
+    "id": 215,
     "name": "AWS KMS (Key Management Service)",
     "category": "AWS",
     "priority": 9,
@@ -3968,7 +3992,7 @@
     ]
   },
   {
-    "id": 217,
+    "id": 216,
     "name": "AWS Organization - Consolidated Billing",
     "category": "AWS",
     "priority": 1,
@@ -3984,7 +4008,7 @@
     ]
   },
   {
-    "id": 218,
+    "id": 217,
     "name": "AWS Batch",
     "category": "AWS",
     "priority": 5,
@@ -4002,7 +4026,7 @@
     ]
   },
   {
-    "id": 219,
+    "id": 218,
     "name": "EBS Snapshots",
     "category": "AWS",
     "priority": 1,
@@ -4019,7 +4043,38 @@
     ]
   },
   {
+    "id": 219,
+    "name": "Active Directory (AD)",
+    "category": "AWS",
+    "priority": 0,
+    "is_boss": "false",
+    "content": "- Found on any Windows Server with AD Domain Services<br/><br/>- Database on **objects**: User Accounts, Computers, Printers, File Shares, Security Groups<br/><br/>- Centralized security management, create account, assign permissions<br/>",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "AWS Directory Services",
+      "AWS IAM Identity Center"
+    ],
+    "children": []
+  },
+  {
     "id": 220,
+    "name": "Internet Gateway",
+    "category": "AWS",
+    "priority": 1,
+    "is_boss": "false",
+    "content": "- **Internet Gateways** helps our [[VPC Summary]] instances connect with the internet<br/>- Public Subnets have a route to the internet gateway.<br/><br/>- **NAT Gateways** (AWS-managed) & **NAT Instances** (self-managed) allow your instances in your Private Subnets to access the internet while remaining private<br/>![[Pasted image 20240524110028.png]]<br/>",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "VPC Summary"
+    ],
+    "children": [
+      "VPC Summary"
+    ]
+  },
+  {
+    "id": 221,
     "name": "AWS Device Farm",
     "category": "AWS",
     "priority": 1,
@@ -4035,7 +4090,7 @@
     ]
   },
   {
-    "id": 221,
+    "id": 222,
     "name": "ECS - Elastic Container Service",
     "category": "AWS",
     "priority": 1,
@@ -4056,7 +4111,7 @@
     ]
   },
   {
-    "id": 222,
+    "id": 223,
     "name": "AWS Well-Architected Tool",
     "category": "AWS",
     "priority": 1,
@@ -4072,7 +4127,7 @@
     ]
   },
   {
-    "id": 223,
+    "id": 224,
     "name": "Security",
     "category": "AWS",
     "priority": 1,
@@ -4088,7 +4143,7 @@
     ]
   },
   {
-    "id": 224,
+    "id": 225,
     "name": "Amazon Comprehend",
     "category": "AWS",
     "priority": 1,
@@ -4104,7 +4159,7 @@
     ]
   },
   {
-    "id": 225,
+    "id": 226,
     "name": "Amazon RDS",
     "category": "AWS",
     "priority": 3,
@@ -4129,7 +4184,7 @@
     ]
   },
   {
-    "id": 226,
+    "id": 227,
     "name": "AWS Local Zones",
     "category": "AWS",
     "priority": 7,
@@ -4151,7 +4206,7 @@
     ]
   },
   {
-    "id": 227,
+    "id": 228,
     "name": "Trusted Advisor",
     "category": "AWS",
     "priority": 1,
@@ -4170,7 +4225,7 @@
     ]
   },
   {
-    "id": 228,
+    "id": 229,
     "name": "Amazon CloudWatch Logs",
     "category": "AWS",
     "priority": 7,
@@ -4192,7 +4247,7 @@
     ]
   },
   {
-    "id": 229,
+    "id": 230,
     "name": "Site to Site VPN & Direct Connect",
     "category": "AWS",
     "priority": 1,
@@ -4210,7 +4265,7 @@
     ]
   },
   {
-    "id": 230,
+    "id": 231,
     "name": "AWS Cloud Adoption Framework (AWS CAF)",
     "category": "AWS",
     "priority": 2,
@@ -4228,7 +4283,7 @@
     ]
   },
   {
-    "id": 231,
+    "id": 232,
     "name": "EC2 - Elastic Compute Cloud",
     "category": "AWS",
     "priority": 12,
@@ -4293,7 +4348,7 @@
     ]
   },
   {
-    "id": 232,
+    "id": 233,
     "name": "AWS IoT Core",
     "category": "AWS",
     "priority": 1,
@@ -4309,7 +4364,7 @@
     ]
   },
   {
-    "id": 233,
+    "id": 234,
     "name": "Amazon Cognito",
     "category": "AWS",
     "priority": 1,
@@ -4322,22 +4377,6 @@
     ],
     "children": [
       "Advanced Identity - Summary"
-    ]
-  },
-  {
-    "id": 234,
-    "name": "AWS X-Ray",
-    "category": "AWS",
-    "priority": 1,
-    "is_boss": "false",
-    "content": "- [[Monitoring Summary]]<br/>- Debugging in Production, the good old way:<br/>\t- test locally<br/>\t- Add log statements everywhere<br/>\t- Re-deploy in production<br/>- Log formats differ across applications and log analysis is hard<br/>- Debugging: one big monolith \"easy\", **distributed services \"hard\"**<br/>- No common views of your entire architecture<br/><br/>- **Enter.. AWS X-Ray**<br/>![[Pasted image 20240524095401.png]]<br/>advantages:<br/>- Trouvleshooting performance (nottlenecks)<br/>- Understand dependencies in a microservice architecture<br/>- Pinpoint service issues<br/>- Review request behavior<br/>- Find errors and exceptions<br/>- Are we meeting time SLA (Service Level Agreement)<br/>- Where I am throttled<br/>- Identify usere that are impacted<br/>",
-    "target_x": 0,
-    "target_y": 0,
-    "parents": [
-      "Monitoring Summary"
-    ],
-    "children": [
-      "Monitoring Summary"
     ]
   },
   {
@@ -4532,6 +4571,27 @@
   },
   {
     "id": 246,
+    "name": "AWS Shield",
+    "category": "AWS",
+    "priority": 4,
+    "is_boss": "false",
+    "content": "- AWS Shield Standard:<br/>\t- Free service that is activated for every AWS customer<br/>\t- Provides protection from attacks such as SYN/UDP Floods, Reflection attacks and other layer3/layer4 attacks<br/>- AWS Shield Advanced<br/>\t- Optional DDos mitigration service (3000 per month per organization)<br/>\t- Protect against more sophisticated attack on [[EC2 - Elastic Compute Cloud]], [[CloudFront]], [[AWS Global Accelerator]], [[Amazon Route 53]]<br/>\t- 24/7 access to AWS DDoS response team<br/>\t- Protect against higher fees during usage spked due to DDoS<br/>",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "Security & Compliance Summary",
+      "AWS Firewall Manager",
+      "DDoS Protection, WAF & Shield"
+    ],
+    "children": [
+      "EC2 - Elastic Compute Cloud",
+      "CloudFront",
+      "AWS Global Accelerator",
+      "Amazon Route 53"
+    ]
+  },
+  {
+    "id": 247,
     "name": "AWS Systems Manager (SSM)",
     "category": "AWS",
     "priority": 3,
@@ -4552,7 +4612,7 @@
     ]
   },
   {
-    "id": 247,
+    "id": 248,
     "name": "AWS PrivateLink",
     "category": "AWS",
     "priority": 1,
@@ -4568,7 +4628,7 @@
     ]
   },
   {
-    "id": 248,
+    "id": 249,
     "name": "AWS CodeBuild",
     "category": "AWS",
     "priority": 1,
@@ -4586,7 +4646,7 @@
     ]
   },
   {
-    "id": 249,
+    "id": 250,
     "name": "AWS  GuardDuty",
     "category": "AWS",
     "priority": 11,
@@ -4614,7 +4674,7 @@
     ]
   },
   {
-    "id": 250,
+    "id": 251,
     "name": "Amazon Route 53",
     "category": "AWS",
     "priority": 0,
@@ -4633,7 +4693,7 @@
     "children": []
   },
   {
-    "id": 251,
+    "id": 252,
     "name": "Amazon Recognition",
     "category": "AWS",
     "priority": 1,
@@ -4646,22 +4706,6 @@
     ],
     "children": [
       "ML"
-    ]
-  },
-  {
-    "id": 252,
-    "name": "Amazon Neptune",
-    "category": "AWS",
-    "priority": 1,
-    "is_boss": "false",
-    "content": "- [[Databases & Analytics Summary]]<br/>- Fully managed **graph** database<br/>![[Pasted image 20240522153903.png]]<br/>",
-    "target_x": 0,
-    "target_y": 0,
-    "parents": [
-      "Databases & Analytics Summary"
-    ],
-    "children": [
-      "Databases & Analytics Summary"
     ]
   },
   {
@@ -4742,27 +4786,6 @@
   },
   {
     "id": 257,
-    "name": "AWS Shield",
-    "category": "AWS",
-    "priority": 4,
-    "is_boss": "false",
-    "content": "- AWS Shield Standard:<br/>\t- Free service that is activated for every AWS customer<br/>\t- Provides protection from attacks such as SYN/UDP Floods, Reflection attacks and other layer3/layer4 attacks<br/>- AWS Shield Advanced<br/>\t- Optional DDos mitigration service (3000 per month per organization)<br/>\t- Protect against more sophisticated attack on [[EC2 - Elastic Compute Cloud]], [[CloudFront]], [[AWS Global Accelerator]], [[Amazon Route 53]]<br/>\t- 24/7 access to AWS DDoS response team<br/>\t- Protect against higher fees during usage spked due to DDoS<br/>",
-    "target_x": 0,
-    "target_y": 0,
-    "parents": [
-      "Security & Compliance Summary",
-      "AWS Firewall Manager",
-      "DDoS Protection, WAF & Shield"
-    ],
-    "children": [
-      "EC2 - Elastic Compute Cloud",
-      "CloudFront",
-      "AWS Global Accelerator",
-      "Amazon Route 53"
-    ]
-  },
-  {
-    "id": 258,
     "name": "AWS WaveLength",
     "category": "AWS",
     "priority": 1,
@@ -4778,7 +4801,7 @@
     ]
   },
   {
-    "id": 259,
+    "id": 258,
     "name": "Amazon ElastiCache",
     "category": "AWS",
     "priority": 1,
@@ -4796,7 +4819,7 @@
     ]
   },
   {
-    "id": 260,
+    "id": 259,
     "name": "Summary",
     "category": "AWS",
     "priority": 7,
@@ -4816,7 +4839,7 @@
     ]
   },
   {
-    "id": 261,
+    "id": 260,
     "name": "Amazon CodeGuru",
     "category": "AWS",
     "priority": 1,
@@ -4832,7 +4855,7 @@
     ]
   },
   {
-    "id": 262,
+    "id": 261,
     "name": "DocumentDB",
     "category": "AWS",
     "priority": 1,
@@ -4848,7 +4871,7 @@
     ]
   },
   {
-    "id": 263,
+    "id": 262,
     "name": "DynamoDB",
     "category": "AWS",
     "priority": 3,
@@ -4868,7 +4891,7 @@
     ]
   },
   {
-    "id": 264,
+    "id": 263,
     "name": "Amazon API Gateway",
     "category": "AWS",
     "priority": 0,
@@ -4884,7 +4907,7 @@
     "children": []
   },
   {
-    "id": 265,
+    "id": 264,
     "name": "AWS Control Tower",
     "category": "AWS",
     "priority": 3,
@@ -4902,7 +4925,7 @@
     ]
   },
   {
-    "id": 266,
+    "id": 265,
     "name": "DMS - Database Migration Service",
     "category": "AWS",
     "priority": 1,
@@ -4918,7 +4941,7 @@
     ]
   },
   {
-    "id": 267,
+    "id": 266,
     "name": "AWS Global Accelerator",
     "category": "AWS",
     "priority": 0,
@@ -4931,6 +4954,22 @@
       "Summary"
     ],
     "children": []
+  },
+  {
+    "id": 267,
+    "name": "Amazon Textract",
+    "category": "AWS",
+    "priority": 1,
+    "is_boss": "false",
+    "content": "- Automatically extracts text, handwriting, and data from any scanned documents using AI and [[ML]]<br/>- Extract data from forms and tables<br/>- Read and process any type of document (PDFs, images, ...)<br/>![[Pasted image 20240524165604.png]]<br/>",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "ML"
+    ],
+    "children": [
+      "ML"
+    ]
   },
   {
     "id": 268,
@@ -4999,22 +5038,6 @@
   },
   {
     "id": 271,
-    "name": "AWS rePost",
-    "category": "AWS",
-    "priority": 1,
-    "is_boss": "false",
-    "content": "- [[Other Services]]<br/>- AWS-managed Q&A service offering crowd-sourced, expert-reviewed answers<br/>- Part of the AWS Free Tier<br/>- Community members can earn reputation points to build up their community expert status by providing accepted answers and reviewing answers from other users<br/>- **Questions from AWS Premium Support customers that do not receive a response from the community are passed on to AWS Support engineers**<br/><br/>Knowledge Center<br/>- Contains the most frequent & common questions and requests<br/><br/>",
-    "target_x": 0,
-    "target_y": 0,
-    "parents": [
-      "Other Services"
-    ],
-    "children": [
-      "Other Services"
-    ]
-  },
-  {
-    "id": 272,
     "name": "Why use an Elastic Load Balancer",
     "category": "AWS",
     "priority": 2,
@@ -5032,7 +5055,7 @@
     ]
   },
   {
-    "id": 273,
+    "id": 272,
     "name": "IP Addresses in AWS",
     "category": "AWS",
     "priority": 1,
@@ -5049,7 +5072,7 @@
     ]
   },
   {
-    "id": 274,
+    "id": 273,
     "name": "AWS IAM Identity Center",
     "category": "AWS",
     "priority": 2,
@@ -5066,7 +5089,7 @@
     ]
   },
   {
-    "id": 275,
+    "id": 274,
     "name": "Savings Plan",
     "category": "AWS",
     "priority": 1,
@@ -5083,7 +5106,7 @@
     ]
   },
   {
-    "id": 276,
+    "id": 275,
     "name": "Redshift",
     "category": "AWS",
     "priority": 1,
@@ -5102,7 +5125,7 @@
     ]
   },
   {
-    "id": 277,
+    "id": 276,
     "name": "Amazon Personalize",
     "category": "AWS",
     "priority": 1,
@@ -5118,7 +5141,7 @@
     ]
   },
   {
-    "id": 278,
+    "id": 277,
     "name": "AWS STS (Security Token Service)",
     "category": "AWS",
     "priority": 1,
@@ -5134,7 +5157,7 @@
     ]
   },
   {
-    "id": 279,
+    "id": 278,
     "name": "AWS Network Firewall",
     "category": "AWS",
     "priority": 2,
@@ -5152,7 +5175,7 @@
     ]
   },
   {
-    "id": 280,
+    "id": 279,
     "name": "Amazon Aurora Serverless",
     "category": "AWS",
     "priority": 1,
@@ -5168,7 +5191,7 @@
     ]
   },
   {
-    "id": 281,
+    "id": 280,
     "name": "Amazon S3 - Buckets",
     "category": "AWS",
     "priority": 1,
@@ -5185,7 +5208,7 @@
     ]
   },
   {
-    "id": 282,
+    "id": 281,
     "name": "AWS Service Catalog",
     "category": "AWS",
     "priority": 1,
@@ -5201,7 +5224,7 @@
     ]
   },
   {
-    "id": 283,
+    "id": 282,
     "name": "AWS Storage Gateway",
     "category": "AWS",
     "priority": 1,
@@ -5218,24 +5241,7 @@
     ]
   },
   {
-    "id": 284,
-    "name": "DynamoDB - Global Tables",
-    "category": "AWS",
-    "priority": 1,
-    "is_boss": "false",
-    "content": "- [[Databases & Analytics Summary]]<br/>- Make a DynamoDB table accessible with low latency in multiple-regions<br/>- Active-Active replication (read/write to any AWS Region)<br/>![[Pasted image 20240522151723.png]]<br/>",
-    "target_x": 0,
-    "target_y": 0,
-    "parents": [
-      "DynamoDB",
-      "Databases & Analytics Summary"
-    ],
-    "children": [
-      "Databases & Analytics Summary"
-    ]
-  },
-  {
-    "id": 285,
+    "id": 283,
     "name": "Monitoring Summary",
     "category": "AWS",
     "priority": 6,
@@ -5256,7 +5262,7 @@
     ]
   },
   {
-    "id": 286,
+    "id": 284,
     "name": "Amazon Kendra",
     "category": "AWS",
     "priority": 1,
@@ -5272,7 +5278,7 @@
     ]
   },
   {
-    "id": 287,
+    "id": 285,
     "name": "AWS CodeStar",
     "category": "AWS",
     "priority": 8,
@@ -5295,7 +5301,7 @@
     ]
   },
   {
-    "id": 288,
+    "id": 286,
     "name": "AWS Elastic Beanstalk",
     "category": "AWS",
     "priority": 4,
@@ -5320,7 +5326,7 @@
     ]
   },
   {
-    "id": 289,
+    "id": 287,
     "name": "AWS Service Quotas",
     "category": "AWS",
     "priority": 1,
@@ -5334,7 +5340,7 @@
     ]
   },
   {
-    "id": 290,
+    "id": 288,
     "name": "AWS CodePipeline",
     "category": "AWS",
     "priority": 6,
@@ -5356,23 +5362,7 @@
     ]
   },
   {
-    "id": 291,
-    "name": "Amazon Textract",
-    "category": "AWS",
-    "priority": 1,
-    "is_boss": "false",
-    "content": "- Automatically extracts text, handwriting, and data from any scanned documents using AI and [[ML]]<br/>- Extract data from forms and tables<br/>- Read and process any type of document (PDFs, images, ...)<br/>![[Pasted image 20240524165604.png]]<br/>",
-    "target_x": 0,
-    "target_y": 0,
-    "parents": [
-      "ML"
-    ],
-    "children": [
-      "ML"
-    ]
-  },
-  {
-    "id": 292,
+    "id": 289,
     "name": "AWS Resource Access Manager (AWS RAM)",
     "category": "AWS",
     "priority": 6,
@@ -5391,7 +5381,7 @@
     ]
   },
   {
-    "id": 293,
+    "id": 290,
     "name": "RDS - Database Pricing",
     "category": "AWS",
     "priority": 1,
@@ -5407,7 +5397,7 @@
     ]
   },
   {
-    "id": 294,
+    "id": 291,
     "name": "AWS Health Dashboard",
     "category": "AWS",
     "priority": 1,
@@ -5425,7 +5415,7 @@
     ]
   },
   {
-    "id": 295,
+    "id": 292,
     "name": "AWS Budgets",
     "category": "AWS",
     "priority": 5,
@@ -5447,7 +5437,7 @@
     ]
   },
   {
-    "id": 296,
+    "id": 293,
     "name": "EBS (Elastic Block Store) Volume",
     "category": "AWS",
     "priority": 2,
@@ -5470,7 +5460,7 @@
     ]
   },
   {
-    "id": 297,
+    "id": 294,
     "name": "CloudFormation",
     "category": "AWS",
     "priority": 1,
@@ -5489,7 +5479,7 @@
     ]
   },
   {
-    "id": 298,
+    "id": 295,
     "name": "Operational Excellence",
     "category": "AWS",
     "priority": 1,
@@ -5505,7 +5495,7 @@
     ]
   },
   {
-    "id": 299,
+    "id": 296,
     "name": "S3 Storage Classes",
     "category": "AWS",
     "priority": 2,
@@ -5523,7 +5513,7 @@
     ]
   },
   {
-    "id": 300,
+    "id": 297,
     "name": "EC2 Instance Types - Overview",
     "category": "AWS",
     "priority": 1,
@@ -5539,7 +5529,7 @@
     ]
   },
   {
-    "id": 301,
+    "id": 298,
     "name": "Amazon Inspector",
     "category": "AWS",
     "priority": 5,
@@ -5560,7 +5550,40 @@
     ]
   },
   {
-    "id": 302,
+    "id": 299,
+    "name": "AWS rePost",
+    "category": "AWS",
+    "priority": 1,
+    "is_boss": "false",
+    "content": "- [[Other Services]]<br/>- AWS-managed Q&A service offering crowd-sourced, expert-reviewed answers<br/>- Part of the AWS Free Tier<br/>- Community members can earn reputation points to build up their community expert status by providing accepted answers and reviewing answers from other users<br/>- **Questions from AWS Premium Support customers that do not receive a response from the community are passed on to AWS Support engineers**<br/><br/>Knowledge Center<br/>- Contains the most frequent & common questions and requests<br/><br/>",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "Other Services"
+    ],
+    "children": [
+      "Other Services"
+    ]
+  },
+  {
+    "id": 300,
+    "name": "DynamoDB - Global Tables",
+    "category": "AWS",
+    "priority": 1,
+    "is_boss": "false",
+    "content": "- [[Databases & Analytics Summary]]<br/>- Make a DynamoDB table accessible with low latency in multiple-regions<br/>- Active-Active replication (read/write to any AWS Region)<br/>![[Pasted image 20240522151723.png]]<br/>",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "DynamoDB",
+      "Databases & Analytics Summary"
+    ],
+    "children": [
+      "Databases & Analytics Summary"
+    ]
+  },
+  {
+    "id": 301,
     "name": "Amazon CloudWatch Alarms",
     "category": "AWS",
     "priority": 1,
@@ -5577,7 +5600,7 @@
     ]
   },
   {
-    "id": 303,
+    "id": 302,
     "name": "Classic Ports to know",
     "category": "AWS",
     "priority": 1,
@@ -5593,7 +5616,7 @@
     ]
   },
   {
-    "id": 304,
+    "id": 303,
     "name": "AWS Enterprise Support Plan",
     "category": "AWS",
     "priority": 1,
@@ -5609,7 +5632,7 @@
     ]
   },
   {
-    "id": 305,
+    "id": 304,
     "name": "ECR - Elastic Container Registry",
     "category": "AWS",
     "priority": 1,
@@ -5626,7 +5649,7 @@
     ]
   },
   {
-    "id": 306,
+    "id": 305,
     "name": "AWS Certificate Manager (ACM)",
     "category": "AWS",
     "priority": 1,
@@ -5642,7 +5665,7 @@
     ]
   },
   {
-    "id": 307,
+    "id": 306,
     "name": "AWS Compute Optimizer",
     "category": "AWS",
     "priority": 4,
@@ -5661,7 +5684,7 @@
     ]
   },
   {
-    "id": 308,
+    "id": 307,
     "name": "Amazon S3 - Static Website Hosting",
     "category": "AWS",
     "priority": 1,
@@ -5677,7 +5700,7 @@
     ]
   },
   {
-    "id": 309,
+    "id": 308,
     "name": "Amazon S3 - Replication (CRR & SRR)",
     "category": "AWS",
     "priority": 1,
@@ -5693,7 +5716,7 @@
     ]
   },
   {
-    "id": 310,
+    "id": 309,
     "name": "Deployment - Summary",
     "category": "AWS",
     "priority": 12,
@@ -5730,7 +5753,7 @@
     ]
   },
   {
-    "id": 311,
+    "id": 310,
     "name": "Sustainability",
     "category": "AWS",
     "priority": 1,
@@ -5746,7 +5769,7 @@
     ]
   },
   {
-    "id": 312,
+    "id": 311,
     "name": "Amazon Macie",
     "category": "AWS",
     "priority": 1,
@@ -5764,7 +5787,7 @@
     ]
   },
   {
-    "id": 313,
+    "id": 312,
     "name": "AWS Pricing Calculator",
     "category": "AWS",
     "priority": 1,
@@ -5781,7 +5804,7 @@
     ]
   },
   {
-    "id": 314,
+    "id": 313,
     "name": "AWS Amplify",
     "category": "AWS",
     "priority": 1,
@@ -5797,7 +5820,7 @@
     ]
   },
   {
-    "id": 315,
+    "id": 314,
     "name": "Permissions",
     "category": "AWS",
     "priority": 3,
@@ -5817,7 +5840,7 @@
     ]
   },
   {
-    "id": 316,
+    "id": 315,
     "name": "Lambda",
     "category": "AWS",
     "priority": 1,
@@ -5842,7 +5865,7 @@
     ]
   },
   {
-    "id": 317,
+    "id": 316,
     "name": "VPC & Subnets",
     "category": "AWS",
     "priority": 1,
@@ -5858,7 +5881,7 @@
     ]
   },
   {
-    "id": 318,
+    "id": 317,
     "name": "Fargate",
     "category": "AWS",
     "priority": 1,
@@ -5875,7 +5898,7 @@
     ]
   },
   {
-    "id": 319,
+    "id": 318,
     "name": "Reliability",
     "category": "AWS",
     "priority": 1,
@@ -5891,7 +5914,7 @@
     ]
   },
   {
-    "id": 320,
+    "id": 319,
     "name": "Databases & Analytics Summary",
     "category": "AWS",
     "priority": 19,
@@ -5944,7 +5967,7 @@
     ]
   },
   {
-    "id": 321,
+    "id": 320,
     "name": "Root user",
     "category": "AWS",
     "priority": 1,
@@ -5960,7 +5983,7 @@
     ]
   },
   {
-    "id": 322,
+    "id": 321,
     "name": "AWS Business Support Plan",
     "category": "AWS",
     "priority": 2,
@@ -5979,7 +6002,7 @@
     ]
   },
   {
-    "id": 323,
+    "id": 322,
     "name": "AWS Snow Family",
     "category": "AWS",
     "priority": 1,
@@ -5992,6 +6015,22 @@
     ],
     "children": [
       "S3 Storage Classes"
+    ]
+  },
+  {
+    "id": 323,
+    "name": "NAT Gateway",
+    "category": "AWS",
+    "priority": 1,
+    "is_boss": "false",
+    "content": "- [[VPC Summary]]<br/>**NAT Gateways** (AWS-managed) & **NAT Instances** (self-managed) allow your instances in your Private Subnets to access the internet while remaining private<br/>![[Pasted image 20240524110028.png]]<br/>",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "VPC Summary"
+    ],
+    "children": [
+      "VPC Summary"
     ]
   },
   {
@@ -6291,6 +6330,25 @@
   },
   {
     "id": 337,
+    "name": "Amazon SNS - Simple Notification Service",
+    "category": "AWS",
+    "priority": 1,
+    "is_boss": "false",
+    "content": "- [[Messages]]<br/>- <br/>![[Pasted image 20240523193357.png]]<br/>- The \"event **publishers**\" only sends message to one SNS topic<br/>- As many \"event **subscribers**\" as we want to listen to the SNS topic notifications<br/>- Each subscriber to the topic **will get all the messages**<br/>- Up to 12.500.000 subscriptions per topic, 100.000 topics limit<br/>![[Pasted image 20240523193744.png]]<br/>",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "AWS  GuardDuty",
+      "Amazon MQ",
+      "Messages",
+      "AWS Config"
+    ],
+    "children": [
+      "Messages"
+    ]
+  },
+  {
+    "id": 338,
     "name": "Security & Compliance Summary",
     "category": "AWS",
     "priority": 18,
@@ -6324,7 +6382,7 @@
     ]
   },
   {
-    "id": 338,
+    "id": 339,
     "name": "AWS CodeArtifact",
     "category": "AWS",
     "priority": 1,
@@ -6340,7 +6398,7 @@
     ]
   },
   {
-    "id": 339,
+    "id": 340,
     "name": "CloudWatch",
     "category": "AWS",
     "priority": 2,
@@ -6362,7 +6420,7 @@
     ]
   },
   {
-    "id": 340,
+    "id": 341,
     "name": "AWS Client VPN",
     "category": "AWS",
     "priority": 2,
@@ -6379,7 +6437,7 @@
     ]
   },
   {
-    "id": 341,
+    "id": 342,
     "name": "AWS Firewall Manager",
     "category": "AWS",
     "priority": 5,
@@ -6400,7 +6458,7 @@
     ]
   },
   {
-    "id": 342,
+    "id": 343,
     "name": "Scaling Groups - Scaling Strategies",
     "category": "AWS",
     "priority": 1,
@@ -6416,7 +6474,7 @@
     ]
   },
   {
-    "id": 343,
+    "id": 344,
     "name": "AWS Artifact",
     "category": "AWS",
     "priority": 0,
@@ -6430,7 +6488,7 @@
     "children": []
   },
   {
-    "id": 344,
+    "id": 345,
     "name": "IAM Roles for Services",
     "category": "AWS",
     "priority": 2,
@@ -6448,7 +6506,7 @@
     ]
   },
   {
-    "id": 345,
+    "id": 346,
     "name": "AWS WAF - Web Application Firewall",
     "category": "AWS",
     "priority": 3,
@@ -6465,25 +6523,6 @@
       "Amazon API Gateway",
       "CloudFront",
       "IP Addresses in AWS"
-    ]
-  },
-  {
-    "id": 346,
-    "name": "Amazon SNS - Simple Notification Service",
-    "category": "AWS",
-    "priority": 1,
-    "is_boss": "false",
-    "content": "- [[Messages]]<br/>- <br/>![[Pasted image 20240523193357.png]]<br/>- The \"event **publishers**\" only sends message to one SNS topic<br/>- As many \"event **subscribers**\" as we want to listen to the SNS topic notifications<br/>- Each subscriber to the topic **will get all the messages**<br/>- Up to 12.500.000 subscriptions per topic, 100.000 topics limit<br/>![[Pasted image 20240523193744.png]]<br/>",
-    "target_x": 0,
-    "target_y": 0,
-    "parents": [
-      "AWS  GuardDuty",
-      "Amazon MQ",
-      "Messages",
-      "AWS Config"
-    ],
-    "children": [
-      "Messages"
     ]
   },
   {
@@ -6643,6 +6682,22 @@
   },
   {
     "id": 355,
+    "name": "Amazon Neptune",
+    "category": "AWS",
+    "priority": 1,
+    "is_boss": "false",
+    "content": "- [[Databases & Analytics Summary]]<br/>- Fully managed **graph** database<br/>![[Pasted image 20240522153903.png]]<br/>",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "Databases & Analytics Summary"
+    ],
+    "children": [
+      "Databases & Analytics Summary"
+    ]
+  },
+  {
+    "id": 356,
     "name": "IAM Access Analyzer",
     "category": "AWS",
     "priority": 6,
@@ -6663,7 +6718,7 @@
     ]
   },
   {
-    "id": 356,
+    "id": 357,
     "name": "Systems Manager parameter Store",
     "category": "AWS",
     "priority": 1,
@@ -6679,7 +6734,7 @@
     ]
   },
   {
-    "id": 357,
+    "id": 358,
     "name": "EC2 Shared Responsibility Model",
     "category": "AWS",
     "priority": 1,
@@ -6695,7 +6750,7 @@
     ]
   },
   {
-    "id": 358,
+    "id": 359,
     "name": "RDS Deployments Options",
     "category": "AWS",
     "priority": 1,
@@ -6711,7 +6766,7 @@
     ]
   },
   {
-    "id": 359,
+    "id": 360,
     "name": "S3 - Storage Pricing",
     "category": "AWS",
     "priority": 1,
@@ -6727,7 +6782,7 @@
     ]
   },
   {
-    "id": 360,
+    "id": 361,
     "name": "Transit Gateway",
     "category": "AWS",
     "priority": 1,
@@ -6744,7 +6799,23 @@
     ]
   },
   {
-    "id": 361,
+    "id": 362,
+    "name": "Amazon SageMaker",
+    "category": "AWS",
+    "priority": 1,
+    "is_boss": "false",
+    "content": "<br/>- Fully managed service for developers / data scientists to build [[ML]] models<br/>- Typically difficult to do all the processes in one place + provision servers<br/>- Machine learning process (simplified): predicting your exam score<br/><br/>![[Pasted image 20240524164354.png]]<br/>",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "ML"
+    ],
+    "children": [
+      "ML"
+    ]
+  },
+  {
+    "id": 363,
     "name": "AWS",
     "category": "AWS",
     "priority": 8,
@@ -6770,7 +6841,7 @@
     ]
   },
   {
-    "id": 362,
+    "id": 364,
     "name": "AMI (Amazon Machine Image)",
     "category": "AWS",
     "priority": 1,
@@ -6786,7 +6857,7 @@
     ]
   },
   {
-    "id": 363,
+    "id": 365,
     "name": "Amazon WorkSpaces",
     "category": "AWS",
     "priority": 1,
@@ -6802,7 +6873,7 @@
     ]
   },
   {
-    "id": 364,
+    "id": 366,
     "name": "VPC Endpoints",
     "category": "AWS",
     "priority": 3,
@@ -6820,7 +6891,7 @@
     ]
   },
   {
-    "id": 365,
+    "id": 367,
     "name": "AWS AppSync",
     "category": "AWS",
     "priority": 2,
@@ -6835,7 +6906,7 @@
     ]
   },
   {
-    "id": 366,
+    "id": 368,
     "name": "Amazon Transcribe",
     "category": "AWS",
     "priority": 1,
@@ -6851,7 +6922,7 @@
     ]
   },
   {
-    "id": 367,
+    "id": 369,
     "name": "CloudFront",
     "category": "AWS",
     "priority": 2,
@@ -6873,7 +6944,7 @@
     ]
   },
   {
-    "id": 368,
+    "id": 370,
     "name": "EBS - Storage Pricing",
     "category": "AWS",
     "priority": 1,
@@ -6890,7 +6961,7 @@
     ]
   },
   {
-    "id": 369,
+    "id": 371,
     "name": "CloudFront - Pricing Storage",
     "category": "AWS",
     "priority": 0,
@@ -6905,7 +6976,7 @@
     "children": []
   },
   {
-    "id": 370,
+    "id": 372,
     "name": "AWS IQ",
     "category": "AWS",
     "priority": 1,
@@ -6921,7 +6992,7 @@
     ]
   },
   {
-    "id": 371,
+    "id": 373,
     "name": "AWS Backup",
     "category": "AWS",
     "priority": 1,
@@ -6935,7 +7006,7 @@
     ]
   },
   {
-    "id": 372,
+    "id": 374,
     "name": "Types of Cloud Computing",
     "category": "AWS",
     "priority": 1,
@@ -6951,7 +7022,7 @@
     ]
   },
   {
-    "id": 373,
+    "id": 375,
     "name": "AWS Security Hub",
     "category": "AWS",
     "priority": 9,
@@ -6977,7 +7048,7 @@
     ]
   },
   {
-    "id": 374,
+    "id": 376,
     "name": "Network ACL & Security Groups",
     "category": "AWS",
     "priority": 2,
@@ -6994,7 +7065,7 @@
     ]
   },
   {
-    "id": 375,
+    "id": 377,
     "name": "AWS Global Infrastructure",
     "category": "AWS",
     "priority": 1,
@@ -7010,23 +7081,7 @@
     ]
   },
   {
-    "id": 376,
-    "name": "EC2 Instance Store",
-    "category": "AWS",
-    "priority": 1,
-    "is_boss": "false",
-    "content": ". [[EC2 - Elastic Compute Cloud]]<br/>- EBS volumes are network drives with good but \"limited performance\"<br/>- **if you need a high-performance hardware disk, use EC2 Instance Store**<br/>- Better I/O performance<br/>- EC2 Instance Store lose their storage if they re stopped<br/>- Good for buffer / cache / scratch data / temporary content<br/>- Risk of data loss if hardware fails<br/>- Backups and Replication are your responsibility<br/>",
-    "target_x": 0,
-    "target_y": 0,
-    "parents": [
-      "EC2 - Elastic Compute Cloud"
-    ],
-    "children": [
-      "EC2 - Elastic Compute Cloud"
-    ]
-  },
-  {
-    "id": 377,
+    "id": 378,
     "name": "Pricing Models in AWS",
     "category": "AWS",
     "priority": 17,
@@ -7058,7 +7113,7 @@
     ]
   },
   {
-    "id": 378,
+    "id": 379,
     "name": "AWS Customer Carbon Footprint Tool",
     "category": "AWS",
     "priority": 1,
@@ -7074,7 +7129,7 @@
     ]
   },
   {
-    "id": 379,
+    "id": 380,
     "name": "Amazon AppStream 2.0",
     "category": "AWS",
     "priority": 1,
@@ -7090,7 +7145,7 @@
     ]
   },
   {
-    "id": 380,
+    "id": 381,
     "name": "Disaster Recovery Strategies",
     "category": "AWS",
     "priority": 1,
@@ -7106,7 +7161,7 @@
     ]
   },
   {
-    "id": 381,
+    "id": 382,
     "name": "IAM Access advicer",
     "category": "AWS",
     "priority": 1,
@@ -7122,7 +7177,7 @@
     ]
   },
   {
-    "id": 382,
+    "id": 383,
     "name": "AWS Billing Dashboard",
     "category": "AWS",
     "priority": 1,
@@ -7139,7 +7194,7 @@
     ]
   },
   {
-    "id": 383,
+    "id": 384,
     "name": "AWS CodeDeploy",
     "category": "AWS",
     "priority": 2,
@@ -7155,22 +7210,6 @@
     "children": [
       "Deployment - Summary",
       "EC2 - Elastic Compute Cloud"
-    ]
-  },
-  {
-    "id": 384,
-    "name": "Amazon SageMaker",
-    "category": "AWS",
-    "priority": 1,
-    "is_boss": "false",
-    "content": "<br/>- Fully managed service for developers / data scientists to build [[ML]] models<br/>- Typically difficult to do all the processes in one place + provision servers<br/>- Machine learning process (simplified): predicting your exam score<br/><br/>![[Pasted image 20240524164354.png]]<br/>",
-    "target_x": 0,
-    "target_y": 0,
-    "parents": [
-      "ML"
-    ],
-    "children": [
-      "ML"
     ]
   },
   {
@@ -7288,6 +7327,22 @@
   },
   {
     "id": 391,
+    "name": "EC2 Instance Store",
+    "category": "AWS",
+    "priority": 1,
+    "is_boss": "false",
+    "content": ". [[EC2 - Elastic Compute Cloud]]<br/>- EBS volumes are network drives with good but \"limited performance\"<br/>- **if you need a high-performance hardware disk, use EC2 Instance Store**<br/>- Better I/O performance<br/>- EC2 Instance Store lose their storage if they re stopped<br/>- Good for buffer / cache / scratch data / temporary content<br/>- Risk of data loss if hardware fails<br/>- Backups and Replication are your responsibility<br/>",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "EC2 - Elastic Compute Cloud"
+    ],
+    "children": [
+      "EC2 - Elastic Compute Cloud"
+    ]
+  },
+  {
+    "id": 392,
     "name": "Amazon QuickSight",
     "category": "AWS",
     "priority": 1,
@@ -7304,7 +7359,7 @@
     ]
   },
   {
-    "id": 392,
+    "id": 393,
     "name": "Amazon EventBridge",
     "category": "AWS",
     "priority": 1,
@@ -7321,7 +7376,7 @@
     ]
   },
   {
-    "id": 393,
+    "id": 394,
     "name": "DDoS Protection, WAF & Shield",
     "category": "AWS",
     "priority": 5,
@@ -7339,7 +7394,7 @@
     ]
   },
   {
-    "id": 394,
+    "id": 395,
     "name": "Amazon ForeCast",
     "category": "AWS",
     "priority": 1,
@@ -7355,7 +7410,7 @@
     ]
   },
   {
-    "id": 395,
+    "id": 396,
     "name": "Compute Pricing - EC2",
     "category": "AWS",
     "priority": 1,
@@ -7371,7 +7426,35 @@
     ]
   },
   {
-    "id": 396,
+    "id": 397,
+    "name": "jQuery Selecting Elements",
+    "category": "Web Development",
+    "priority": 0,
+    "is_boss": "false",
+    "content": "```JavaScript<br/>$(\"h1\");<br/>$(\"button\");<br/>//No difference of selecting one or many<br/>```<br/>",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "jQuery"
+    ],
+    "children": []
+  },
+  {
+    "id": 398,
+    "name": "CDN",
+    "category": "Web Development",
+    "priority": 0,
+    "is_boss": "false",
+    "content": "",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "jQuery"
+    ],
+    "children": []
+  },
+  {
+    "id": 399,
     "name": "AWS Glue",
     "category": "AWS",
     "priority": 1,
@@ -7387,7 +7470,7 @@
     ]
   },
   {
-    "id": 397,
+    "id": 400,
     "name": "Amazon Athena",
     "category": "AWS",
     "priority": 1,
@@ -7405,7 +7488,7 @@
     ]
   },
   {
-    "id": 398,
+    "id": 401,
     "name": "Scalability vs Elasticity vs Agility vs Availability",
     "category": "AWS",
     "priority": 2,
@@ -7420,7 +7503,7 @@
     ]
   },
   {
-    "id": 399,
+    "id": 402,
     "name": "VPC Summary",
     "category": "AWS",
     "priority": 12,
@@ -7464,7 +7547,7 @@
     ]
   },
   {
-    "id": 400,
+    "id": 403,
     "name": "REST API",
     "category": "Web Development",
     "priority": 5,
@@ -7482,7 +7565,7 @@
     ]
   },
   {
-    "id": 401,
+    "id": 404,
     "name": "REST PATCH Route",
     "category": "Web Development",
     "priority": 1,
@@ -7498,7 +7581,7 @@
     ]
   },
   {
-    "id": 402,
+    "id": 405,
     "name": "Express",
     "category": "Web Development",
     "priority": 6,
@@ -7523,7 +7606,7 @@
     ]
   },
   {
-    "id": 403,
+    "id": 406,
     "name": "HTTP Requests",
     "category": "Web Development",
     "priority": 1,
@@ -7539,7 +7622,7 @@
     ]
   },
   {
-    "id": 404,
+    "id": 407,
     "name": "Changing Styles of HTML Elements",
     "category": "Web Development",
     "priority": 1,
@@ -7555,7 +7638,7 @@
     ]
   },
   {
-    "id": 405,
+    "id": 408,
     "name": "Express Shell Commands",
     "category": "Web Development",
     "priority": 4,
@@ -7575,7 +7658,7 @@
     ]
   },
   {
-    "id": 406,
+    "id": 409,
     "name": "REST POST Route",
     "category": "Web Development",
     "priority": 1,
@@ -7591,7 +7674,7 @@
     ]
   },
   {
-    "id": 407,
+    "id": 410,
     "name": "Manipulating HTML Element Attributes",
     "category": "Web Development",
     "priority": 2,
@@ -7606,7 +7689,7 @@
     ]
   },
   {
-    "id": 408,
+    "id": 411,
     "name": "Adding Javascript to Website",
     "category": "Web Development",
     "priority": 1,
@@ -7622,7 +7705,7 @@
     ]
   },
   {
-    "id": 409,
+    "id": 412,
     "name": "JavaScript EventListeners",
     "category": "Web Development",
     "priority": 2,
@@ -7639,7 +7722,7 @@
     ]
   },
   {
-    "id": 410,
+    "id": 413,
     "name": "jQuery Adding and Removing Elements",
     "category": "Web Development",
     "priority": 0,
@@ -7653,7 +7736,7 @@
     "children": []
   },
   {
-    "id": 411,
+    "id": 414,
     "name": "jQuery Event Listeners",
     "category": "Web Development",
     "priority": 1,
@@ -7669,7 +7752,7 @@
     ]
   },
   {
-    "id": 412,
+    "id": 415,
     "name": "jQuery",
     "category": "Web Development",
     "priority": 9,
@@ -7697,23 +7780,7 @@
     ]
   },
   {
-    "id": 413,
-    "name": "VBA Cells",
-    "category": "Visual Basic for Application",
-    "priority": 1,
-    "is_boss": "false",
-    "content": "[[VBA]]<br/>```vba<br/>Cells(1, 1).Value = \"In Zelle A1\"<br/>```<br/>",
-    "target_x": 0,
-    "target_y": 0,
-    "parents": [
-      "VBA"
-    ],
-    "children": [
-      "VBA"
-    ]
-  },
-  {
-    "id": 414,
+    "id": 416,
     "name": "Higher Order Functions and Passing Functions as Arguments",
     "category": "Web Development",
     "priority": 2,
@@ -7728,7 +7795,7 @@
     ]
   },
   {
-    "id": 415,
+    "id": 417,
     "name": "DOM Document Object Model",
     "category": "Web Development",
     "priority": 4,
@@ -7750,7 +7817,7 @@
     ]
   },
   {
-    "id": 416,
+    "id": 418,
     "name": "package.json",
     "category": "Web Development",
     "priority": 1,
@@ -7767,7 +7834,7 @@
     ]
   },
   {
-    "id": 417,
+    "id": 419,
     "name": "Middleware",
     "category": "Web Development",
     "priority": 1,
@@ -7783,7 +7850,7 @@
     ]
   },
   {
-    "id": 418,
+    "id": 420,
     "name": "jQuery Manipulating  Attributes",
     "category": "Web Development",
     "priority": 1,
@@ -7799,25 +7866,25 @@
     ]
   },
   {
-    "id": 419,
+    "id": 421,
     "name": "Selecting HTML Elements with JavaScript",
     "category": "Web Development",
     "priority": 2,
     "is_boss": "false",
-    "content": "- [[HTML Hypertext Markup Language]]<br/>- [[JavaScript]]<br/>```JavaScript<br/>document.getElementsByTagName(...) //return array<br/><br/>document.getElementsByTagName(...).length \t//returns Array.size\t\t\t\t\t  <br/>document.getElementsByClassName(...) //returns array<br/><br/>document.getElementById(...) //return Item<br/><br/>document.querySelector(\"h1\") //return h1 item<br/><br/>document.querySelector(\"#title\") //return item with ID title<br/><br/>document.querySelector(\".btn\") //return item with class=btn<br/><br/>document.querySelector(\"li a\") //return anchor which is List-item li<br/><br/>document.querySelector(\"li.lala\") //return list item which is of class=lala<br/><br/>document.querySelectorAll(\"#list .item\") //return Array of elements of list with ID=list and class=item<br/>```<br/>",
+    "content": "- [[HTML]]<br/>- [[JavaScript]]<br/>```JavaScript<br/>document.getElementsByTagName(...) //return array<br/><br/>document.getElementsByTagName(...).length \t//returns Array.size\t\t\t\t\t  <br/>document.getElementsByClassName(...) //returns array<br/><br/>document.getElementById(...) //return Item<br/><br/>document.querySelector(\"h1\") //return h1 item<br/><br/>document.querySelector(\"#title\") //return item with ID title<br/><br/>document.querySelector(\".btn\") //return item with class=btn<br/><br/>document.querySelector(\"li a\") //return anchor which is List-item li<br/><br/>document.querySelector(\"li.lala\") //return list item which is of class=lala<br/><br/>document.querySelectorAll(\"#list .item\") //return Array of elements of list with ID=list and class=item<br/>```<br/>",
     "target_x": 0,
     "target_y": 0,
     "parents": [
-      "DOM Document Object Model",
-      "HTML Hypertext Markup Language"
+      "HTML",
+      "DOM Document Object Model"
     ],
     "children": [
-      "HTML Hypertext Markup Language",
+      "HTML",
       "JavaScript"
     ]
   },
   {
-    "id": 420,
+    "id": 422,
     "name": "jQuery Manipulating Styles",
     "category": "Web Development",
     "priority": 1,
@@ -7831,34 +7898,6 @@
     "children": [
       "jQuery"
     ]
-  },
-  {
-    "id": 421,
-    "name": "jQuery Selecting Elements",
-    "category": "Web Development",
-    "priority": 0,
-    "is_boss": "false",
-    "content": "```JavaScript<br/>$(\"h1\");<br/>$(\"button\");<br/>//No difference of selecting one or many<br/>```<br/>",
-    "target_x": 0,
-    "target_y": 0,
-    "parents": [
-      "jQuery"
-    ],
-    "children": []
-  },
-  {
-    "id": 422,
-    "name": "CDN",
-    "category": "Web Development",
-    "priority": 0,
-    "is_boss": "false",
-    "content": "",
-    "target_x": 0,
-    "target_y": 0,
-    "parents": [
-      "jQuery"
-    ],
-    "children": []
   },
   {
     "id": 423,
@@ -8033,6 +8072,22 @@
   },
   {
     "id": 433,
+    "name": "Node.js exec",
+    "category": "Javascript",
+    "priority": 1,
+    "is_boss": "false",
+    "content": "[[Node.js]]<br/>```Javascript<br/>import { exec } from 'child_process';<br/>// Pfad zu Ihrer C++-executable Datei<br/>const executablePath = './test'; // oder './myprogram.exe' unter Windows<br/>exec(executablePath, (error, stdout, stderr) => {<br/>\tif (error) {<br/>\t\tconsole.error(`Fehler beim Ausführen des Programms: ${error.message}`);<br/>\t\treturn;<br/>\t}<br/>\tif (stderr) {<br/>\t\tconsole.error(`Fehlerausgabe: ${stderr}`);<br/>\t\treturn;<br/>\t}<br/>\t// Ausgabe des Programms<br/>\tconsole.log(`Ausgabe: ${stdout}`);<br/>});<br/>```<br/>",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "Node.js"
+    ],
+    "children": [
+      "Node.js"
+    ]
+  },
+  {
+    "id": 434,
     "name": "JavaScript",
     "category": "Javascript",
     "priority": 13,
@@ -8080,7 +8135,7 @@
     ]
   },
   {
-    "id": 434,
+    "id": 435,
     "name": "NPM Shell Commands",
     "category": "Javascript",
     "priority": 3,
@@ -8103,7 +8158,7 @@
     ]
   },
   {
-    "id": 435,
+    "id": 436,
     "name": "math.js",
     "category": "Javascript",
     "priority": 1,
@@ -8119,7 +8174,7 @@
     ]
   },
   {
-    "id": 436,
+    "id": 437,
     "name": "JavaScript Arrays",
     "category": "Javascript",
     "priority": 1,
@@ -8135,7 +8190,7 @@
     ]
   },
   {
-    "id": 437,
+    "id": 438,
     "name": "Promise",
     "category": "Javascript",
     "priority": 1,
@@ -8151,7 +8206,7 @@
     ]
   },
   {
-    "id": 438,
+    "id": 439,
     "name": "JavaScript JSON",
     "category": "Javascript",
     "priority": 1,
@@ -8167,7 +8222,7 @@
     ]
   },
   {
-    "id": 439,
+    "id": 440,
     "name": "JavaScript Events",
     "category": "Javascript",
     "priority": 1,
@@ -8183,7 +8238,7 @@
     ]
   },
   {
-    "id": 440,
+    "id": 441,
     "name": "JavaScript Loops",
     "category": "Javascript",
     "priority": 1,
@@ -8199,7 +8254,7 @@
     ]
   },
   {
-    "id": 441,
+    "id": 442,
     "name": "calculator.test.js",
     "category": "Javascript",
     "priority": 1,
@@ -8215,23 +8270,23 @@
     ]
   },
   {
-    "id": 442,
-    "name": "Node.js exec",
-    "category": "Javascript",
+    "id": 443,
+    "name": "Generating a new SSH key and adding it to the ssh-agent Linux",
+    "category": "GIT",
     "priority": 1,
     "is_boss": "false",
-    "content": "[[Node.js]]<br/>```Javascript<br/>import { exec } from 'child_process';<br/>// Pfad zu Ihrer C++-executable Datei<br/>const executablePath = './test'; // oder './myprogram.exe' unter Windows<br/>exec(executablePath, (error, stdout, stderr) => {<br/>\tif (error) {<br/>\t\tconsole.error(`Fehler beim Ausführen des Programms: ${error.message}`);<br/>\t\treturn;<br/>\t}<br/>\tif (stderr) {<br/>\t\tconsole.error(`Fehlerausgabe: ${stderr}`);<br/>\t\treturn;<br/>\t}<br/>\t// Ausgabe des Programms<br/>\tconsole.log(`Ausgabe: ${stdout}`);<br/>});<br/>```<br/>",
+    "content": "[[GIT]]<br/>```Shell<br/>ssh-keygen -t ed25519 -C \"your_email@example.com\"<br/>Your identification has been saved in /home/your_username/.ssh/id_ed25519<br/>eval \"$(ssh-agent -s)\"<br/>ssh-add ~/.ssh/id_ed25519<br/>cat ~/.ssh/id_ed25519.pub # copy to github<br/>ssh -T git@github.com #test<br/>```<br/>",
     "target_x": 0,
     "target_y": 0,
     "parents": [
-      "Node.js"
+      "GIT"
     ],
     "children": [
-      "Node.js"
+      "GIT"
     ]
   },
   {
-    "id": 443,
+    "id": 444,
     "name": "node.js Database",
     "category": "Javascript",
     "priority": 2,
@@ -8249,7 +8304,7 @@
     ]
   },
   {
-    "id": 444,
+    "id": 445,
     "name": "JavaScript Basics",
     "category": "Javascript",
     "priority": 1,
@@ -8265,7 +8320,7 @@
     ]
   },
   {
-    "id": 445,
+    "id": 446,
     "name": "JavaScript Data Types",
     "category": "Javascript",
     "priority": 1,
@@ -8281,7 +8336,7 @@
     ]
   },
   {
-    "id": 446,
+    "id": 447,
     "name": "JavaScript Global Functions",
     "category": "Javascript",
     "priority": 1,
@@ -8297,7 +8352,7 @@
     ]
   },
   {
-    "id": 447,
+    "id": 448,
     "name": "Node.js",
     "category": "Javascript",
     "priority": 7,
@@ -8325,7 +8380,7 @@
     ]
   },
   {
-    "id": 448,
+    "id": 449,
     "name": "async & await",
     "category": "Javascript",
     "priority": 1,
@@ -8341,7 +8396,7 @@
     ]
   },
   {
-    "id": 449,
+    "id": 450,
     "name": "calculator.js",
     "category": "Javascript",
     "priority": 1,
@@ -8357,7 +8412,7 @@
     ]
   },
   {
-    "id": 450,
+    "id": 451,
     "name": "NPM Server Foundation",
     "category": "Javascript",
     "priority": 0,
@@ -8376,7 +8431,7 @@
     "children": []
   },
   {
-    "id": 451,
+    "id": 452,
     "name": "Node.js Client",
     "category": "Javascript",
     "priority": 2,
@@ -8394,7 +8449,7 @@
     ]
   },
   {
-    "id": 452,
+    "id": 453,
     "name": "NPM Node Package Manager",
     "category": "Javascript",
     "priority": 3,
@@ -8413,7 +8468,7 @@
     ]
   },
   {
-    "id": 453,
+    "id": 454,
     "name": "Node.js Postgres Shell",
     "category": "Javascript",
     "priority": 2,
@@ -8430,7 +8485,7 @@
     ]
   },
   {
-    "id": 454,
+    "id": 455,
     "name": "Node.js Mocking Shell",
     "category": "Javascript",
     "priority": 2,
@@ -8448,7 +8503,7 @@
     ]
   },
   {
-    "id": 455,
+    "id": 456,
     "name": "Node.js Shell Commands",
     "category": "Javascript",
     "priority": 5,
@@ -8469,7 +8524,7 @@
     ]
   },
   {
-    "id": 456,
+    "id": 457,
     "name": "VBA MsgBox",
     "category": "Visual Basic for Application",
     "priority": 1,
@@ -8485,7 +8540,7 @@
     ]
   },
   {
-    "id": 457,
+    "id": 458,
     "name": "VBA Prozedur",
     "category": "Visual Basic for Application",
     "priority": 1,
@@ -8501,7 +8556,7 @@
     ]
   },
   {
-    "id": 458,
+    "id": 459,
     "name": "VBA Range",
     "category": "Visual Basic for Application",
     "priority": 1,
@@ -8517,7 +8572,7 @@
     ]
   },
   {
-    "id": 459,
+    "id": 460,
     "name": "VBA Variable",
     "category": "Visual Basic for Application",
     "priority": 1,
@@ -8533,7 +8588,7 @@
     ]
   },
   {
-    "id": 460,
+    "id": 461,
     "name": "VBA with,end with",
     "category": "Visual Basic for Application",
     "priority": 1,
@@ -8549,7 +8604,7 @@
     ]
   },
   {
-    "id": 461,
+    "id": 462,
     "name": "VBA Funktion",
     "category": "Visual Basic for Application",
     "priority": 1,
@@ -8565,7 +8620,7 @@
     ]
   },
   {
-    "id": 462,
+    "id": 463,
     "name": "VBA Do loop",
     "category": "Visual Basic for Application",
     "priority": 1,
@@ -8581,7 +8636,7 @@
     ]
   },
   {
-    "id": 463,
+    "id": 464,
     "name": "VBA if,then,else",
     "category": "Visual Basic for Application",
     "priority": 1,
@@ -8597,7 +8652,7 @@
     ]
   },
   {
-    "id": 464,
+    "id": 465,
     "name": "VBA Worksheets",
     "category": "Visual Basic for Application",
     "priority": 1,
@@ -8613,7 +8668,23 @@
     ]
   },
   {
-    "id": 465,
+    "id": 466,
+    "name": "VBA Cells",
+    "category": "Visual Basic for Application",
+    "priority": 1,
+    "is_boss": "false",
+    "content": "[[VBA]]<br/>```vba<br/>Cells(1, 1).Value = \"In Zelle A1\"<br/>```<br/>",
+    "target_x": 0,
+    "target_y": 0,
+    "parents": [
+      "VBA"
+    ],
+    "children": [
+      "VBA"
+    ]
+  },
+  {
+    "id": 467,
     "name": "VBA",
     "category": "Visual Basic for Application",
     "priority": 13,
@@ -8653,7 +8724,7 @@
     ]
   },
   {
-    "id": 466,
+    "id": 468,
     "name": "VBA for,next",
     "category": "Visual Basic for Application",
     "priority": 1,
@@ -8669,7 +8740,7 @@
     ]
   },
   {
-    "id": 467,
+    "id": 469,
     "name": "VBA Select Case",
     "category": "Visual Basic for Application",
     "priority": 1,
@@ -8685,7 +8756,7 @@
     ]
   },
   {
-    "id": 468,
+    "id": 470,
     "name": "Git Branching and Merging",
     "category": "GIT",
     "priority": 1,
@@ -8702,7 +8773,7 @@
     ]
   },
   {
-    "id": 469,
+    "id": 471,
     "name": "Generating a new SSH key and adding it to the ssh-agent MacOS",
     "category": "GIT",
     "priority": 1,
@@ -8718,7 +8789,7 @@
     ]
   },
   {
-    "id": 470,
+    "id": 472,
     "name": "Gitignore",
     "category": "GIT",
     "priority": 1,
@@ -8735,7 +8806,7 @@
     ]
   },
   {
-    "id": 471,
+    "id": 473,
     "name": "GitHub and Remote Repositories",
     "category": "GIT",
     "priority": 1,
@@ -8752,23 +8823,7 @@
     ]
   },
   {
-    "id": 472,
-    "name": "Generating a new SSH key and adding it to the ssh-agent Linux",
-    "category": "GIT",
-    "priority": 1,
-    "is_boss": "false",
-    "content": "[[GIT]]<br/>```Shell<br/>ssh-keygen -t ed25519 -C \"your_email@example.com\"<br/>Your identification has been saved in /home/your_username/.ssh/id_ed25519<br/>eval \"$(ssh-agent -s)\"<br/>ssh-add ~/.ssh/id_ed25519<br/>cat ~/.ssh/id_ed25519.pub # copy to github<br/>ssh -T git@github.com #test<br/>```<br/>",
-    "target_x": 0,
-    "target_y": 0,
-    "parents": [
-      "GIT"
-    ],
-    "children": [
-      "GIT"
-    ]
-  },
-  {
-    "id": 473,
+    "id": 474,
     "name": "GIT",
     "category": "GIT",
     "priority": 8,
@@ -8793,7 +8848,7 @@
     ]
   },
   {
-    "id": 474,
+    "id": 475,
     "name": "Git Forking and Pull Requests",
     "category": "GIT",
     "priority": 1,
@@ -8810,7 +8865,7 @@
     ]
   },
   {
-    "id": 475,
+    "id": 476,
     "name": "Git Cloning",
     "category": "GIT",
     "priority": 1,
@@ -8827,7 +8882,7 @@
     ]
   },
   {
-    "id": 476,
+    "id": 477,
     "name": "SQL CREATE TABLE",
     "category": "SQL",
     "priority": 1,
@@ -8843,7 +8898,7 @@
     ]
   },
   {
-    "id": 477,
+    "id": 478,
     "name": "SQL Inner Join",
     "category": "SQL",
     "priority": 1,
@@ -8859,7 +8914,7 @@
     ]
   },
   {
-    "id": 478,
+    "id": 479,
     "name": "PostgreSQL",
     "category": "SQL",
     "priority": 1,
@@ -8875,7 +8930,7 @@
     ]
   },
   {
-    "id": 479,
+    "id": 480,
     "name": "SQL INSERT INTO",
     "category": "SQL",
     "priority": 1,
@@ -8891,7 +8946,7 @@
     ]
   },
   {
-    "id": 480,
+    "id": 481,
     "name": "SQL",
     "category": "SQL",
     "priority": 10,
@@ -8926,7 +8981,7 @@
     ]
   },
   {
-    "id": 481,
+    "id": 482,
     "name": "SQL Neues Schema",
     "category": "SQL",
     "priority": 1,
@@ -8942,7 +8997,7 @@
     ]
   },
   {
-    "id": 482,
+    "id": 483,
     "name": "SQL Neuer Benutzer",
     "category": "SQL",
     "priority": 1,
@@ -8958,7 +9013,7 @@
     ]
   },
   {
-    "id": 483,
+    "id": 484,
     "name": "NoSQL",
     "category": "SQL",
     "priority": 2,
@@ -8975,7 +9030,7 @@
     ]
   },
   {
-    "id": 484,
+    "id": 485,
     "name": "SQL Neue Datenbank",
     "category": "SQL",
     "priority": 1,
@@ -8991,7 +9046,7 @@
     ]
   },
   {
-    "id": 485,
+    "id": 486,
     "name": "SQL date",
     "category": "SQL",
     "priority": 1,
