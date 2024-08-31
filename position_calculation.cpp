@@ -549,7 +549,7 @@ int main()
         district_x = new_sort_position(x_pos, canvas_size);
         district_y = new_sort_position(y_pos, canvas_size);
         location[district_x][district_y].emplace_back(circle_json[i]["id"]);
-        Circle myCircle(circle_json[i]["id"],circle_json[i]["category"],circle_json[i]["is_boss"], circle_json[i]["name"], x_pos, y_pos, district_x, district_y, circle_json[i]["content"]);
+        Circle myCircle(circle_json[i]["id"],circle_json[i]["category"],circle_json[i]["is_boss"],circle_json[i]["priority"], circle_json[i]["name"], x_pos, y_pos, district_x, district_y, circle_json[i]["content"]);
         circles.emplace_back(myCircle);
     }
     
@@ -682,6 +682,7 @@ int main()
         jsonDoc["id"] = circles[i].id;
         jsonDoc["category"] = circles[i].category;
         jsonDoc["is_boss"] = circles[i].is_boss;
+        jsonDoc["priority"] = circles[i].priority;
         jsonDoc["x_pos"] = circles[i].x;
         jsonDoc["y_pos"] = circles[i].y;
         

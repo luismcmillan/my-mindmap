@@ -1,7 +1,7 @@
-import { sharedState, location } from './state.js';
+import { sharedState, location, balls, canvasSize } from './state.js';
 
 export default class Circle {
-    constructor(id,category,is_boss,name,x, y,district_x,district_y,target_x,target_y,size, content) {
+    constructor(id,category,is_boss,priority,name,x, y,district_x,district_y,target_x,target_y,size, content) {
       this.id = id;
       this.x = x;
       this.y = y;
@@ -16,6 +16,7 @@ export default class Circle {
       this.dragging = false;
       this.name = name;
       this.category = category;
+      this.priority = priority
       if(is_boss === "true"){
         this.is_boss = true;
       }else {
@@ -72,8 +73,8 @@ export default class Circle {
 
     follow(){
 
-        var distance = Math.sqrt((this.target_x-this.x)**2 + (this.target_y-this.y)**2);
-        if (!this.dragging && distance > 8.0) {
+        const distance = Math.sqrt((this.target_x-this.x)**2 + (this.target_y-this.y)**2);
+        if (!this.dragging && distance > 50*this.priority) {
             this.x = this.x - this.vx*((this.x-this.target_x)/(Math.abs(this.x-this.target_x) + Math.abs(this.y-this.target_y)));
             this.y = this.y - this.vy*((this.y-this.target_y)/(Math.abs(this.x-this.target_x) + Math.abs(this.y-this.target_y)));
         } else if (!this.dragging && distance < 8.0){
@@ -81,9 +82,21 @@ export default class Circle {
             this.y = this.target_y;
             this.in_position = true;
         }
-        if (this.vx < 8){
+        if (this.vx < 1){
           this.vx += 0.05;
           this.vy += 0.05;
+        }
+    }
+
+    keepDistanceTo(posX, posY) {
+        const distance = Math.sqrt((posX - this.x) * (posX - this.x) + (posY - this.y) * (posY - this.y));
+        if (distance < 300.0) {
+            //console.log("this.x = ",this.x, "this.vx = ",this.vx, " posX = ", posX, "this.y = ",this.y," posY = ",posY, " (Math.abs(this.x - posX) + Math.abs(this.y - posY) = ", (Math.abs(this.x - posX) + Math.abs(this.y - posY)));
+            //console.log("x = ",this.x + 0.1 * this.vx * ((this.x - posX) / (Math.abs(this.x - posX) + Math.abs(this.y - posY)))," y = ",this.y + 0.1 * this.vy * ((this.y - posY) / (Math.abs(this.x - posX) + Math.abs(this.y - posY))));
+            if((Math.abs(this.x - posX) + Math.abs(this.y - posY)) != 0.0){
+              this.x = this.x + this.vx * ((this.x - posX) / (Math.abs(this.x - posX) + Math.abs(this.y - posY)));
+              this.y = this.y + this.vy * ((this.y - posY) / (Math.abs(this.x - posX) + Math.abs(this.y - posY)));
+            }
         }
     }
 
@@ -142,7 +155,6 @@ export default class Circle {
       return;
     }
     // Entfernen der ID von der alten Position
-    console.log(old_district_x,"",old_district_y);
     
     const oldDistrictArray = location[old_district_x][old_district_y];
     const indexToRemove = oldDistrictArray.indexOf(this.id);
@@ -158,6 +170,10 @@ export default class Circle {
     
     
 }
+    set_target_position(posX, posY){
+      this.target_x = this.setPosition(posX);
+      this.target_y = this.setPosition(posY);
+    }
 
     
 
@@ -198,6 +214,49 @@ export default class Circle {
     set_color(){
         return sharedState.colors[this.category] || "gray"
     }
+
+    new_target_position() {
+      let sum_follow_x = 0;
+      let sum_follow_y = 0;
+      const child_links = this.child_links;
+      const follow_count = child_links.length;
+      for (let i = 0; i < follow_count; i++) {
+          const circle = child_links[i]; 
+          sum_follow_x += circle.x;
+          sum_follow_y += circle.y;
+      }
+      this.target_x = sum_follow_x/follow_count;
+      this.target_y =  sum_follow_y/follow_count;
+  }
+
+  keep_distance(){
+      let sum_distance_x = 0;
+      let sum_distance_y = 0;
+      const keep_distance_circles = location[this.district_x][this.district_y];
+      const keep_distance_count = location[this.district_x][this.district_y].length;
+      for (let i = 0; i < keep_distance_count; i++) {
+        
+        const circle = balls[keep_distance_circles[i]]; // Index oder Referenz zu "circles"
+        const distance = Math.sqrt((this.x-circle.x)**2 + (this.y-circle.y)**2);
+        if( distance < this.radius+ circle.radius){
+          sum_distance_x += circle.x;
+          sum_distance_y += circle.y;
+        }
+      }
+      //console.log("distancex = ",sum_distance_x/keep_distance_count," distancey = ",sum_distance_y/keep_distance_count);
+      if (keep_distance_count > 0) this.keepDistanceTo(sum_distance_x/keep_distance_count,sum_distance_y/keep_distance_count);
+  }
+
+  setPosition(target) {
+    const padding = 75.0; // Puffer, um den Kreis innerhalb des sichtbaren Bereichs zu halten
+    if (target < padding) {
+        return padding; // Setzt die Position auf den Pufferwert, wenn sie unterhalb des Puffers liegt
+    } else if (target > canvasSize - padding) {
+        return canvasSize - padding; // Setzt die Position auf den Pufferwert, wenn sie oberhalb des Puffers liegt
+    } else {
+        return target; // Gibt die Zielposition zurück, wenn sie innerhalb der Grenzen liegt
+    }
+}
 
     static sort_cordinate(pos) {
       const canvasSize = 1000;

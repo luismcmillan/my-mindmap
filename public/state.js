@@ -28,6 +28,7 @@ export const sharedState = {
         "Apache Kafka": "rgb(200, 200, 200)"
       }
 };
+export const canvasSize = 1000;
 export const balls = [];
 export const map = new Map();
 export const matrix = [];

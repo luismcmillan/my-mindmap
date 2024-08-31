@@ -50,6 +50,7 @@ function createCircles(jsoncontent) {
         element.id,
         element.category,
         element.is_boss,
+        element.priority,
         element.name,
         pos_x,
         pos_y,

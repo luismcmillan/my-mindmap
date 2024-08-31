@@ -6,24 +6,32 @@ const ctx_width = canvas.width;
 const ctx_height = canvas.height;
 const circle_size = document.getElementById("circle_size").value;
 
-const lineWidth = 0.5;  // Einheitliche Linienstärke definiert
+const lineWidth = 2;  // Einheitliche Linienstärke definiert
 let raf;
 
 export async function animation() {
     if (!sharedState.all_loaded) return;
   
     if (sharedState.general_hovered || !sharedState.starting_animation_done) clear();
+    /*
     if (!sharedState.lines_disappear_animation_done && sharedState.animation_color < 215) {
         sharedState.animation_color += 10;
     } else if (sharedState.lines_disappear_animation_done && sharedState.animation_color > 65) {
         sharedState.animation_color -= 10;
     }
+        */
   
     draw_all_lines(getColor());
   
     let found_out_of_position = false;
     balls.forEach(ball => {
-      if (sharedState.animation_color === 215) ball.follow();
+      //if (sharedState.animation_color === 215) {
+        ball.new_target_position();
+        ball.follow();
+        ball.keep_distance();
+
+      //}
+        
       ball.updateDistrict()
       ball.change_circle_gravity();
       ball.change_circle_size();
