@@ -26,9 +26,11 @@ export async function animation() {
     let found_out_of_position = false;
     balls.forEach(ball => {
       //if (sharedState.animation_color === 215) {
+        
         ball.new_target_position();
-        ball.follow();
         ball.keep_distance();
+        
+        ball.follow();
 
       //}
         
@@ -38,9 +40,14 @@ export async function animation() {
       ball.draw();
       
       // Text anzeigen
-      ball.show_text();
+      
+      
+      sharedState.rotation_pos = (sharedState.rotation_pos +0.000001)%360;
   
       if (!ball.in_position) found_out_of_position = true;
+    });
+    balls.forEach(ball => {
+        ball.show_text();
     });
   
     sharedState.lines_disappear_animation_done = !found_out_of_position;
