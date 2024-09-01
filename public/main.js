@@ -89,12 +89,6 @@ function startAnimation() {
     sharedState.running = true;
   }
 }
-
-
-
-function clear() {
-  ctx.clearRect(0, 0, ctx_width, ctx_height);
-}
 // Event-Listener für Maus- und Touch-Events
 canvas.addEventListener("mousemove", handleMouseMove);
 canvas.addEventListener("mousedown", handleMouseDown);
