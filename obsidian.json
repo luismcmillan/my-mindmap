@@ -189,6 +189,11 @@
     "priority": 4,
     "is_boss": "true",
     "content": "[[JavaScript]]<br/>[Boss]<br/>[[TypeScript Basics]]<br/>![[ReadOnlySet<Class>]]<br/><br/>![[NestJS]]<br/>",
+    "name": "TypeScript",
+    "category": "TypeScript",
+    "priority": 4,
+    "is_boss": "true",
+    "content": "[[JavaScript]]<br/>[Boss]<br/>[[TypeScript Basics]]<br/>![[ReadOnlySet<Class>]]<br/><br/>![[NestJS]]<br/>",
     "target_x": 0,
     "target_y": 0,
     "parents": [
@@ -5557,8 +5562,8 @@
     ]
   },
   {
-    "id": 299,
-    "name": "AWS rePost",
+    "id": 302,
+    "name": "Amazon CloudWatch Alarms",
     "category": "AWS",
     "priority": 1,
     "is_boss": "false",
