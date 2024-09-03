@@ -1,16 +1,18 @@
 import Circle from "./circle.js";
 import { balls,map,matrix, location,sharedState } from './state.js'; // Importieren des sharedState aus state.js
-import { handleMouseMove, handleMouseDown, handleMouseUp , handleTouchStart, handleTouchMove, handleTouchEnd} from './eventFunction.js';
-import { animation,draw_all_lines, getColor } from './animationHandler.js';
+import { threejsanimation} from './animationHandler.js';
+import { ThreeJsHandler, createVector} from "./threeHandler.js";
 
 
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
-const ctx_width = canvas.width;
-const ctx_height = canvas.height;
+//const canvas = document.getElementById("old-canvas");
+//const ctx = canvas.getContext("2d");
+
+const ctx_width = 1000;//canvas.width;
+//const ctx_height = canvas.height;
 const circle_size = document.getElementById("circle_size").value;
-ctx.strokeStyle = sharedState.animation_color;
+//ctx.strokeStyle = sharedState.animation_color;
 let raf;
+export const threeJsHandler = new ThreeJsHandler('canvas-container');
 
 main();
 
@@ -20,14 +22,17 @@ async function main() {
   createConnections(jsoncontent);
   fillConnectivityMatrix();
   
-  draw_all_lines(getColor());
+  //draw_all_lines(getColor());
   sharedState.all_loaded = true;
   
+  const circles =[];
   balls.forEach(ball => {
     location[ball.district_x][ball.district_y].push(ball.id);
     ball.change_circle_size();
-    ball.draw();
+    //ball.draw();
   });
+  threeJsHandler.createScene( balls, matrix);
+  console.log("Scene is created");
 }
 
 async function loadJson() {
@@ -40,9 +45,10 @@ async function loadJson() {
 }
 
 function createCircles(jsoncontent) {
+
   jsoncontent.forEach((element, i) => {
-    const pos_x = ctx_width / 2 + ctx_width * 0.4 * Math.sin((i / jsoncontent.length) * 2 * Math.PI);
-    const pos_y = ctx_height / 2 + ctx_width * 0.4 * Math.cos((i / jsoncontent.length) * 2 * Math.PI);
+    const pos_x =  ctx_width * 0.4 * Math.sin((i / jsoncontent.length) * 2 * Math.PI);//+ctx_width / 2;
+    const pos_y = ctx_width * 0.4 * Math.cos((i / jsoncontent.length) * 2 * Math.PI);// + ctx_height / 2;
     map.set(element.name, element.id);
     balls.push(
       new Circle(
@@ -53,6 +59,7 @@ function createCircles(jsoncontent) {
         element.name,
         pos_x,
         pos_y,
+        createVector(pos_x,pos_y),
         Circle.sort_cordinate(pos_x),
         Circle.sort_cordinate(pos_y),
         pos_x,
@@ -80,19 +87,13 @@ function fillConnectivityMatrix() {
 
 
 function startAnimation() {
-  if (!sharedState.running) {
-    raf = window.requestAnimationFrame(animation);
+  if ( sharedState.all_loaded &&!sharedState.running) {
+    raf = window.requestAnimationFrame(threejsanimation);
     sharedState.running = true;
   }
 }
-// Event-Listener für Maus- und Touch-Events
-canvas.addEventListener("mousemove", handleMouseMove);
-canvas.addEventListener("mousedown", handleMouseDown);
-canvas.addEventListener("mouseup", handleMouseUp);
-canvas.addEventListener("click", startAnimation);
-canvas.addEventListener("mouseout", startAnimation);
-canvas.addEventListener("touchstart", handleTouchStart);
-canvas.addEventListener("touchmove", handleTouchMove);
-canvas.addEventListener("touchend", handleTouchEnd);
+
+window.addEventListener("click", startAnimation);
+window.addEventListener("mouseout", startAnimation);
 window.addEventListener("scroll", startAnimation);
 document.getElementById("myModal").addEventListener("click", startAnimation);

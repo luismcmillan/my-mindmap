@@ -1,5 +1,6 @@
 import { sharedState, location, balls, canvasSize } from "./state.js";
 
+
 export default class Circle {
   constructor(
     id,
@@ -9,6 +10,7 @@ export default class Circle {
     name,
     x,
     y,
+    position,
     district_x,
     district_y,
     target_x,
@@ -19,6 +21,7 @@ export default class Circle {
     this.id = id;
     this.x = x;
     this.y = y;
+    this.position = position;
     this.district_x = district_x;
     this.district_y = district_y;
     this.target_x = target_x;
@@ -44,6 +47,8 @@ export default class Circle {
     this.rejection =
       (document.getElementById("rejection") / 100) * this.attraction;
     this.in_position = false;
+    this.mesh = null;
+    this.text_mesh = null;
   }
 
   draw() {
@@ -58,20 +63,7 @@ export default class Circle {
     }
   }
 
-  draw_line_to(ball) {
-    const canvas = document.getElementById("canvas");
-    const ctx = canvas.getContext("2d");
-    const old_strokestyle = ctx.strokeStyle;
-    const old_linewidth = ctx.lineWidth;
-    ctx.strokeStyle = "white"; // Farbe der Linie
-    //ctx.lineWidth = 3;
-    ctx.moveTo(this.x, this.y);
-    ctx.lineTo(ball.x, ball.y);
-    ctx.stroke();
-    ctx.strokeStyle = old_strokestyle; // Farbe der Linie
-    //ctx.lineWidth = old_linewidth;
-  }
-  complicated_follow() {}
+  
 
   follow() {
     const distance = Math.sqrt(
@@ -120,45 +112,8 @@ keepDistanceTo(posX, posY) {
   }
 }
 
-  show_text() {
-    if (this.hovered || this.dragging || this.is_boss) {
-      const canvas = document.getElementById("canvas");
-      const ctx = canvas.getContext("2d");
-      const old_color = ctx.fillStyle;
-      ctx.font = "30px Arial";
-      ctx.textAlign = "center";
-      ctx.fillStyle = "black";
-      ctx.fillText(this.name, this.x, this.y - this.radius);
-      ctx.stroke();
-      ctx.fillStyle = old_color;
-    }
-  }
 
-  draw_me() {
-    const canvas = document.getElementById("canvas");
-    const ctx = canvas.getContext("2d");
-    const old_color = ctx.fillStyle;
-    ctx.fillStyle = this.color;
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
-    ctx.closePath();
-    ctx.stroke();
-    ctx.fill();
-    ctx.fillStyle = old_color;
-  }
 
-  draw_me_once(color) {
-    const canvas = document.getElementById("canvas");
-    const ctx = canvas.getContext("2d");
-    const old_color = ctx.fillStyle;
-    ctx.fillStyle = color;
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
-    ctx.closePath();
-    ctx.stroke();
-    ctx.fill();
-    ctx.fillStyle = old_color;
-  }
 
   sort_position() {
     this.district_x = Circle.sort_cordinate(this.x);
@@ -308,13 +263,18 @@ keepDistanceTo(posX, posY) {
 
   setPosition(target) {
     const padding = 20.0; // Puffer, um den Kreis innerhalb des sichtbaren Bereichs zu halten
-    if (target < padding) {
-      return padding; // Setzt die Position auf den Pufferwert, wenn sie unterhalb des Puffers liegt
-    } else if (target > canvasSize - padding) {
+    //if (target < padding) {
+    //  return padding; // Setzt die Position auf den Pufferwert, wenn sie unterhalb des Puffers liegt
+    //} else 
+    if (Math.abs(target) > canvasSize - padding) {
       return canvasSize - padding; // Setzt die Position auf den Pufferwert, wenn sie oberhalb des Puffers liegt
     } else {
       return target; // Gibt die Zielposition zurück, wenn sie innerhalb der Grenzen liegt
     }
+  }
+
+  setVector(x, y) {
+    this.position.set(x, y, 1); // Ändert den Vektor auf die neuen Werte x, y und behält z=1 bei
   }
 
   static sort_cordinate(pos) {
