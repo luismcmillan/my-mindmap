@@ -1,2 +1,7 @@
 user_data
 .env
+obsidian.json
+obsidian_with_position.json
+public/obsidian.json
+public/obsidian_with_position.json
+position_calculation.cpp

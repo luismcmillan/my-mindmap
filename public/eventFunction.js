@@ -31,7 +31,7 @@ function handleTouchStart(e) {
       if (ball.hovered) {
         found_hovered = true;
         sharedState.general_hovered = true;
-        document.getElementById("circle-content").innerHTML = ball.give_content();
+        //document.getElementById("circle-content").innerHTML = ball.give_content();
         if (ball.dragging) {
           ball.x = mouse_x;
           ball.y = mouse_y;
@@ -58,7 +58,7 @@ function handleTouchStart(e) {
       if (ball.hovered) {
         found_hovered = true;
         sharedState.general_hovered = true;
-        document.getElementById("circle-content").innerHTML = ball.give_content();
+        //document.getElementById("circle-content").innerHTML = ball.give_content();
         if (ball.dragging) {
           ball.x = mouse_x;
           ball.y = mouse_y;
