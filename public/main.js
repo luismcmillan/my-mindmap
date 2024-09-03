@@ -3,6 +3,7 @@ import { balls,map,matrix, location,sharedState } from './state.js'; // Importie
 import { handleMouseMove, handleMouseDown, handleMouseUp , handleTouchStart, handleTouchMove, handleTouchEnd} from './eventFunction.js';
 import { animation,draw_all_lines, getColor } from './animationHandler.js';
 
+
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const ctx_width = canvas.width;
@@ -15,7 +16,6 @@ main();
 
 async function main() {
   const jsoncontent = await loadJson();
-
   createCircles(jsoncontent);
   createConnections(jsoncontent);
   fillConnectivityMatrix();
@@ -32,7 +32,7 @@ async function main() {
 
 async function loadJson() {
   try {
-    const response = await fetch("./obsidian_with_position.json");
+    const response = await fetch("./obsidian.json");
     return await response.json();
   } catch (error) {
     console.error("Fehler beim Laden der JSON-Datei:", error);
@@ -43,7 +43,6 @@ function createCircles(jsoncontent) {
   jsoncontent.forEach((element, i) => {
     const pos_x = ctx_width / 2 + ctx_width * 0.4 * Math.sin((i / jsoncontent.length) * 2 * Math.PI);
     const pos_y = ctx_height / 2 + ctx_width * 0.4 * Math.cos((i / jsoncontent.length) * 2 * Math.PI);
-
     map.set(element.name, element.id);
     balls.push(
       new Circle(
@@ -56,8 +55,8 @@ function createCircles(jsoncontent) {
         pos_y,
         Circle.sort_cordinate(pos_x),
         Circle.sort_cordinate(pos_y),
-        element.x_pos,
-        element.y_pos,
+        pos_x,
+        pos_y,
         circle_size,
         element.content
       )
@@ -68,10 +67,7 @@ function createCircles(jsoncontent) {
 function createConnections(jsoncontent) {
   jsoncontent.forEach(element => {
     const children_list = element.children.map(child => balls[map.get(child)]);
-    const parent_list = element.parents.map(parent => balls[map.get(parent)]);
-
     balls[element.id].child_links = children_list;
-    balls[element.id].parent_links = parent_list;
   });
 }
 

@@ -54,7 +54,8 @@ app.get("/update", async (req, res) => {
 
         const result = await client.query('SELECT * FROM topics');
         const topic_json = jsonManager.createJSONArray(result);
-        await jsonManager.saveJSONArrayToFile("obsidian.json", topic_json);
+        
+        await jsonManager.saveJSONArrayToFile("public/obsidian.json", topic_json);
 
         res.send('Daten aktualisiert');
     } catch (err) {

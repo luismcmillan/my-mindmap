@@ -298,7 +298,6 @@ keepDistanceTo(posX, posY) {
           sum_distance_y += circle.y;
         }
       }
-      //console.log("distancex = ",sum_distance_x/keep_distance_count," distancey = ",sum_distance_y/keep_distance_count);
       if (keep_distance_count > 0)
         this.keepDistanceTo(
           sum_distance_x / keep_distance_count,
